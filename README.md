@@ -7,7 +7,7 @@
 <br><br>
 
 1. Description
-2. Wireframes
+2. Wireframe
 3. MVP
 4. User Stories
 
@@ -25,15 +25,37 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 *****
 
-##2. Wireframes
+##2. Wireframe
 
-![image](http://)
+![image](assets/wireframe1.JPG =500x)
 
 
 *******
 
 ##3. MVP
 
+1. Create Splash Screen with "start" button.
+2. Create initial map - Boston Harbor, 3 x 3.
+3. Create five (5) Boston Harbor characters, at least 1 non-fighting, and at least 3 that talk.
+	- wharf rat
+	- drunk fisherman
+	- pirate
+	- constable (non-fighting)
+	- 
+4. Include images for Boston Harbor characters.
+5. Include background for Boston Harbor.
+6. Create first weapon (fists) and second weapon (dagger).
+7. Create battle function.
+8. Include at least one (1) music track.
+9. Create text box for location/character descriptions.
+10. Create action box for movement/actions/battle options.
+11. Create first key location (City of Boston).
+12. Create sub-locations for City of Boston:
+	- Green Dragon tavern
+	- State House
+	- Quincy Market
+	- apothecary
+	- North End
 
 
 
