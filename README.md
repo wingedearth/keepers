@@ -34,6 +34,7 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 ##3. MVP
 
+**Phase 1**
 1. Create Splash Screen with "start" button.
 2. Create initial map - Boston Harbor, 3 x 3.
 3. Create five (5) Boston Harbor characters, at least 1 non-fighting, and at least 3 that talk.
@@ -41,21 +42,22 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 	- drunk fisherman
 	- pirate
 	- constable (non-fighting)
-	- 
-4. Include images for Boston Harbor characters.
-5. Include background for Boston Harbor.
-6. Create first weapon (fists) and second weapon (dagger).
-7. Create battle function.
-8. Include at least one (1) music track.
-9. Create text box for location/character descriptions.
-10. Create action box for movement/actions/battle options.
-11. Create first key location (City of Boston).
-12. Create sub-locations for City of Boston:
-	- Green Dragon tavern
+4. Create first weapon (fists) and second weapon (dagger).
+5. Create battle function.
+6. Create text box for location/character descriptions.
+7. Create action box for movement/actions/battle options.
+8. Create first key location (City of Boston).
+9. Create sub-locations for City of Boston:
+	- Green Dragon tavern (n)
 	- State House
-	- Quincy Market
-	- apothecary
-	- North End
+	- Quincy Market (buy/sell goods)
+	- apothecary (buy potions/spells)
+	- North End (cannolis, coffeeshops)
+
+**Phase 2**
+1. Include background for Boston Harbor.
+2. Include images for Boston Harbor characters.
+3. Include at least one (1) music track.
 
 
 
