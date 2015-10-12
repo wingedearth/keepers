@@ -1,3 +1,19 @@
+
+// LANDS. A land is the name of a particular area.
+
+var land = ["Welcome", 			//0 - same index for areas
+			"Boston Harbor", 	//1 - same index for areas
+			"Boston Town", 		//2 - same index for areas
+			"Massachusetts",  	//3 - same index for areas
+			"Mohawk Trail", 	//4 - same index for areas
+			"Bath",				//5 - same index for areas
+			"Genesee Country",	//6 - same index for areas
+			"New Jerusalem",	//7 - same index for areas
+			"Genesee River",	//8 - same index for areas
+			"Fallstown"			//9 - same index for areas
+			]
+
+
 /* MAPS.  maps is an array of numbered spaces designating where you may 
 move to within a particular area. Each area has its own map. */
 
