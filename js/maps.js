@@ -13,11 +13,14 @@ var land = ["Welcome", 			//0 - same index for areas
 			"Fallstown"			//9 - same index for areas
 			]
 
+var startyx = [2, 2, 4, 9, 1, 3, 1, 1, 1];
+
+var startyy = [2, 3, 2, 0, 1, 1, 0, 7, 0];
 
 /* MAPS.  maps is an array of numbered spaces designating where you may 
 move to within a particular area. Each area has its own map. */
 
-var maps = [];
+var maps = []; // array of maps, one for each area
 
 // First set all zones to null
 for (var i=0; i<10; i++)
@@ -27,12 +30,11 @@ for (var i=0; i<10; i++)
 
 // Welcome zone of maps[0] stays as null
 
-// Boston Harbor has a 4 x 4 map of 16 spaces
+// Boston Harbor has a 3 x 3 map of 9 spaces
 maps[1] = [];
-maps[1] = 	[	['A', 'K', 'A', 'A'],
-				['A', 'A', 'A', 'A'],
-				['A', 'A', 'A', 'A'],
-				['A', 'A', 'A', 'K']
+maps[1] = 	[	['A', 'K', 'A'],
+				['A', 'A', 'A'],
+				['A', 'A', 'K']
 		 	];
 
 // Boston Town has a 4 x 4 map of 16 spaces
@@ -99,3 +101,38 @@ maps[9] = 	[	['A', 'K', 'A'],
 				['A', 'A', 'A'],
 				['A', 'A', 'K'],
 		 	];
+
+/* AREAS - Each area[i] includes a land, a map, a set of
+common monsters, and a list of friendly characters. 
+The maps include key locations that activate key functions. */
+
+var area = []; // array of area objects
+var currentArea = new Object(); // assigning your current area
+
+// what each area[i] object looks like
+var ProtoArea = function(location, map, monsters, friendlies, startx, starty, bg)
+{
+	this.location = location;
+	this.map = map;
+	this.monsters = monsters;
+	this.friendlies = friendlies;
+	this.startx = startx;
+	this.starty = starty;
+	this.bg = bg;
+	//this.landbg = landbg;
+};
+
+var startbg = [];
+startbg = 	["url(/assets/return.jpg)",
+			"url(/assets/fitz-hugh-lane.jpg)",
+			"url(/assets/boston2.jpg)",
+			"url(/assets/masswoods.jpg)",
+			"url(/assets/putnam-thomascole.jpg)",
+			"url(/assets/williamsonmansion.jpg)",
+			"url(/assets/masswoods.jpg)",
+			"url(/assets/masswoods.jpg)",
+			"url(/assets/masswoods.jpg)",
+			"url(/assets/masswoods.jpg)"]
+
+
+
