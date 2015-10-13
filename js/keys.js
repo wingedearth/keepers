@@ -4,7 +4,11 @@ function keyEvent(id)
 	if (id==0)
 	{
 		// Col. Rochester dialogue
+		currentPerson = goodGuys[0][0];
 		changeArea = 1;
+		loadText("Good morning, Charles.");
+		waitNow();
+		loadText("Good morning, Charles.\n\nYou took a nasty hit to the head.")
 	}
 
 	// Boston Harbor events
@@ -13,6 +17,10 @@ function keyEvent(id)
 		if (currentPlace == [2, 2])
 		{
 			// wake-up event
+			currentPerson = colrochester;
+			loadSpace(1, 2, 2);
+			loadMonster(currentPerson);
+			loadText(id);
 		}
 		if (currentPlace == [0, 1])
 		{
@@ -31,13 +39,13 @@ function keyEvent(id)
 
 		if (currentPlace == [0, 3])
 		{
-		// North End event / apothecary
+		// North End event / apothecary / buy/sell
 		}		
 
 		if (currentPlace == [0, 1])
 		{
-		// Green Dragon event with Robert Morris
-		// mission = 1;
+		// Green Dragon Tavern with Robert Morris
+		mission = 1;
 		}		
 
 		if (currentPlace == [1, 1])

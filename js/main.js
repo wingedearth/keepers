@@ -20,16 +20,14 @@ function initialize()
 
 	// current space image set to initial default image
 	currentSpace = spaces[0][0];
+	currentPerson = goodGuys[0][0];
 
 	// assign attributes of player's character, Maj. Charles Carroll
 	carroll = 
 	{
-		health: 1000,
-		maxhealth: 1000,
+		health: 1000, maxhealth: 1000,
 		name: 	"Maj. Charles Carroll",
-		strength: weapon[0],
-		weap: "fists",
-		defense: 50,
+		strength: weapon[0], weap: "fists", defense: 50,
 		magic: spells[0],
 		cattack: function(enemy)
 		{
@@ -43,20 +41,23 @@ function initialize()
 // This function should run at the start of each new area.
 function reset(i)
 {
+	// Change current area to selected area.
 	currentArea = area[i];
+
+	// Change location label to current area
+	$('#location').text(currentArea.location);
+
+	// set currentPlace to starting coordinates.
 	currentPlace = [area[i].startx, area[i].starty]
-	currentPerson = goodGuys[i][0];
-	loadLand(i);
+
 }
 
 // This function should run every time player moves to a new space.
-// If a key space is landed on, run render() after key event runs.
-function render(id, y, x)
+// If a key space is landed on, run keyEvents(); instead.
+function render(id)
 {
-	loadSpace(id, y, x);
+	loadSpace(id, currentPlace[0], currentPlace[1]);
 	loadMonster(currentPerson);
-	loadText(id);
-	moveAction();
 }
 
 function dialogue()
@@ -64,16 +65,16 @@ function dialogue()
 	// set up buttons in actionbox to converse via text
 }
 
-function loadText(id)
+
+function loadText(wordums)
 {
-	//load random space descriptive dialog for this area
+	$('#textbox').text(wordums);
 }
 
 
-function loadLand(i)
+function waitNow() 
 {
-	$('body').css('background-image', area[i].bg);
-	$('#location').text(currentArea.location);
+	setTimeout(function() { }, 3000);
 }
 
 function loadSpace(id, y, x)
@@ -123,6 +124,10 @@ function playArea0()
 	areaIndex = 0;
 	reset(areaIndex);
 	render(areaIndex, currentPlace[0], currentPlace[1]);
+	if (maps[areaIndex][currentPlace[0]][currentPlace[1]] == "A")
+		{
+			//display random area text.
+		}
 	// click through talking using actionbox "next" button
 }
 
@@ -135,13 +140,33 @@ function playArea1()
 	while (changeArea == 0)
 	{
 		if (maps[areaIndex][currentPlace[0]][currentPlace[1]] == "K")
-			{
+		{
 				keyEvent(areaIndex);
-			}
+				currentPerson = goodGuys[areaIndex][0];
+		}
+		else
+		{
+			// check for random monster;
+			// if there's a monster, then pick one.
+		}
+		
+		if (currentPerson != goodGuys[areaIndex][0])
+		{
+			dialogue();
+			if (carroll.health < 1)
+				{
+					console.log("Carroll is dead.");
+					$('#photobox').css('background-image', splitfoot.spriteImg);
+					$('#textbox').text('Carroll is dead.');
+					alert("Game over!");
+				}
+		}
+
+		// at end of dialogue, textbox offers space description
 		render(areaIndex, currentPlace[0], currentPlace[1]);
 		
-		// at end of dialogue, textbox offers space description
-		// action box offers directional movement buttons	
+		// action box offers directional movement buttons
+		moveAction();
 	}
 }
 
@@ -173,6 +198,7 @@ function loadMonster(person)
 
 	//start currentMonster's dialogue
 
+
 	//if fight happens, launch battle function
 		//if Carroll dies, launch game over function
 		//if currentMonster dies, launch loot function
@@ -186,7 +212,6 @@ function loadMonster(person)
 
 var areaIndex;
 var changeArea;
-var person;
 var currentPerson;
 var currentSpace;
 var currentPlace = [];
@@ -208,11 +233,23 @@ var carroll = new Object();
 
 //set up game and offer "start" and "continue" in actionbox
 initialize();
+reset(0);
+render(0);
 
-//set up event listener for "start" button
+$('li').hover(
+	function()
+	{ 
+		$(this).css('background-color', 'dodgerblue');
+	},
+	function()
+	{
+		$(this).css('background-color', 'cornsilk');
+	} );
+
+$('#gamestart').click(function()
+{ 	playArea0; });
 
 
-playGame();
 
 
 

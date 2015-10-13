@@ -30,7 +30,7 @@ for (var i=0; i<10; i++)
 
 // Welcome zone has a 1 x 1 map of 1 space
 maps[0] = [['K']];
-spaces[0] = ["url(/assets/area0/area0.jpg)"]
+spaces[0] = ["url(/assets/area0/area0.jpg)"];
 
 
 // Boston Harbor has a 3 x 3 map of 9 spaces
@@ -40,8 +40,13 @@ maps[1] = 	[	['A', 'K', 'A'],
 				['A', 'A', 'K']
 		 	];
 
-spaces[1] = ["url(/assets/area1/area1-1.jpg)"]
+spaces[1] = ["url(/assets/area1/area1-1.jpg)",
+			"url(/assets/area1/area1-2.jpg)",
+			"url(/assets/area1/area1-3.jpg)",
+			"url(/assets/area1/area1-4.jpg)"];
 
+describe[1] = ["Y"
+					];
 
 // Boston Town has a 4 x 4 map of 16 spaces
 maps[2] = [];
@@ -51,6 +56,10 @@ maps[2] = 	[	['A', 'K', 'A', 'K'],
 				['K', 'A', 'K', 'A']
 		 	];
 
+spaces[2] = ["url(/assets/area2/area2-1.jpg)",
+			"url(/assets/area2/area2-2.jpg)",
+			"url(/assets/area2/area2-3.jpg)"];
+
 // Massachusetts has a 5 x 4 map of 20 spaces
 maps[3] = [];
 maps[3] = 	[	['A', 'A', 'A', 'A', 'A'],
@@ -59,11 +68,19 @@ maps[3] = 	[	['A', 'A', 'A', 'A', 'A'],
 				['A', 'A', 'A', 'A', 'A']
 		 	];
 
+spaces[3] = ["url(/assets/area3/area3-1.jpg)",
+			"url(/assets/area3/area3-2.jpg)",
+			"url(/assets/area3/area3-3.jpg)",
+			"url(/assets/area3/area3-4.jpg)",
+			"url(/assets/area3/area3-5.jpg)"];
+
 // Mohawk Trail has a 10 x 2 map of 20 spaces
 maps[4] = [];
 maps[4] = 	[	['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A' ,'K'],
 				['A', 'K', 'A', 'A', 'A', 'A', 'A', 'A', 'A' ,'A']
 		 	];
+spaces[4] = ["url(/assets/area4/area4-1.jpg)",
+			 "url(/assets/area4/area4-2.jpg)"];
 
 // Bath has a 3 x 3 map of 9 spaces
 maps[5] = [];
@@ -72,6 +89,7 @@ maps[5] = 	[	['A', 'K', 'A'],
 				['A', 'A', 'A']
 		 	];
 
+spaces[5] = ["url(/assets/area5/area5-1.jpg)"];
 
 // Genesee Country has a 5 x 5 map of 25 spaces
 maps[6] = [];
@@ -82,12 +100,16 @@ maps[6] = 	[	['A', 'K', 'A', 'A'],
 				['A', 'K', 'A', 'A']
 		 	];
 
+spaces[6] = ["url(/assets/area6/area6-1.jpg)"];
+
 // New Jerusalem has a 3 x 3 map of 9 spaces
 maps[7] = [];
 maps[7] = 	[	['A', 'K', 'A'],
 				['A', 'A', 'A'],
 				['A', 'A', 'K'],
 		 	];
+
+spaces[7] = ["url(/assets/area7/area7-1.jpg)"];
 
 // Genesee River has a 2 x 8 map of 16 spaces
 maps[8] = [];
@@ -101,12 +123,19 @@ maps[8] = 	[	['A', 'K'],
 				['A', 'A']
 		 	];
 
+spaces[8] = ["url(/assets/area8/area8-1.jpg)",
+			 "url(/assets/area8/area8-2.jpg)",
+			 "url(/assets/area8/area8-3.jpg)"];
+
 // Fallstown has a 3 x 3 map of 9 spaces
 maps[9] = [];
 maps[9] = 	[	['A', 'K', 'A'],
 				['A', 'A', 'A'],
 				['A', 'A', 'K'],
 		 	];
+
+spaces[9] = ["url(/assets/area9/area9-1.jpg)",
+			 "url(/assets/area9/area9-2.jpg)"];
 
 /* AREAS - Each area[i] includes a land, a map, a set of
 common monsters, and a list of friendly characters. 
@@ -132,15 +161,15 @@ var ProtoArea = function(id, location, map, monsters, friendlies, startx, starty
 
 var startbg = [];
 startbg = 	["url()",
-			"url(/assets/area1/area1.jpg)",
-			"url(/assets/boston2.jpg)",
-			"url(/assets/masswoods.jpg)",
-			"url(/assets/putnam-thomascole.jpg)",
-			"url(/assets/williamsonmansion.jpg)",
-			"url(/assets/masswoods.jpg)",
-			"url(/assets/masswoods.jpg)",
-			"url(/assets/masswoods.jpg)",
-			"url(/assets/masswoods.jpg)"]
+			"url()",
+			"url()",
+			"url()",
+			"url()",
+			"url()",
+			"url()",
+			"url()",
+			"url()",
+			"url()"]
 
 
 
