@@ -13,22 +13,25 @@ var land = ["Welcome", 			//0 - same index for areas
 			"Fallstown"			//9 - same index for areas
 			]
 
-var startyx = [2, 2, 4, 9, 1, 3, 1, 1, 1];
-
-var startyy = [2, 3, 2, 0, 1, 1, 0, 7, 0];
+// x and y coordinates of player's starting position on each map
+var startyx = [0, 2, 2, 4, 9, 1, 3, 1, 1, 1];
+var startyy = [0, 2, 3, 2, 0, 1, 1, 0, 7, 0];
 
 /* MAPS.  maps is an array of numbered spaces designating where you may 
 move to within a particular area. Each area has its own map. */
 
 var maps = []; // array of maps, one for each area
+var spaces = []; // array of space photos, several for each area
 
-// First set all zones to null
+// Initialize by setting all zones to null.
 for (var i=0; i<10; i++)
-{
-	maps[i] = null;	
-}
+{ maps[i] = null; }
 
-// Welcome zone of maps[0] stays as null
+
+// Welcome zone has a 1 x 1 map of 1 space
+maps[0] = [['K']];
+spaces[0] = ["url(/assets/area0/area0.jpg)"]
+
 
 // Boston Harbor has a 3 x 3 map of 9 spaces
 maps[1] = [];
@@ -36,6 +39,9 @@ maps[1] = 	[	['A', 'K', 'A'],
 				['A', 'A', 'A'],
 				['A', 'A', 'K']
 		 	];
+
+spaces[1] = ["url(/assets/area1/area1-1.jpg)"]
+
 
 // Boston Town has a 4 x 4 map of 16 spaces
 maps[2] = [];
@@ -110,8 +116,9 @@ var area = []; // array of area objects
 var currentArea = new Object(); // assigning your current area
 
 // what each area[i] object looks like
-var ProtoArea = function(location, map, monsters, friendlies, startx, starty, bg)
+var ProtoArea = function(id, location, map, monsters, friendlies, startx, starty, bg)
 {
+	this.id = id;
 	this.location = location;
 	this.map = map;
 	this.monsters = monsters;
@@ -119,12 +126,13 @@ var ProtoArea = function(location, map, monsters, friendlies, startx, starty, bg
 	this.startx = startx;
 	this.starty = starty;
 	this.bg = bg;
+	this.id = id;
 	//this.landbg = landbg;
 };
 
 var startbg = [];
-startbg = 	["url(/assets/return.jpg)",
-			"url(/assets/fitz-hugh-lane.jpg)",
+startbg = 	["url()",
+			"url(/assets/area1/area1.jpg)",
 			"url(/assets/boston2.jpg)",
 			"url(/assets/masswoods.jpg)",
 			"url(/assets/putnam-thomascole.jpg)",

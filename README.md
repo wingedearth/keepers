@@ -34,30 +34,81 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 ##3. MVP
 
-**Phase 1**
-1. Create Splash Screen with "start" button.
-2. Create initial map - Boston Harbor, 3 x 3.
-3. Create five (5) Boston Harbor characters, at least 1 non-fighting, and at least 3 that talk.
-	- wharf rat
-	- drunk fisherman
-	- pirate
-	- constable (non-fighting)
-4. Create first weapon (fists) and second weapon (dagger).
-5. Create battle function.
-6. Create text box for location/character descriptions.
-7. Create action box for movement/actions/battle options.
-8. Create first key location (City of Boston).
-9. Create sub-locations for City of Boston:
-	- Green Dragon tavern (n)
-	- State House
-	- Quincy Market (buy/sell goods)
-	- apothecary (buy potions/spells)
-	- North End (cannolis, coffeeshops)
+**Phase 1: Current**<br>
+	
+1. Design interface elements and Splash Screen with "start" button.
+	- text box (dialogue and location descriptions)
+	- location box (identify current area)
+	- space box (picture of current surroundings)
+	- action box (interactive buttons for movement, battle, dialogue)
+	- photo box (image of character player is interacting with)
+	- body background (image of current area)
+2. Create initial maps for ten (10) areas:
+	- Welcome
+	- Boston Harbor
+	- Boston Town
+	- Massachusetts
+	- Mohawk Trail
+	- Bath
+	- Genesee Country
+	- New Jerusalem
+	- Genesee River
+	- Fallstown
 
-**Phase 2**
-1. Include background for Boston Harbor.
-2. Include images for Boston Harbor characters.
-3. Include at least one (1) music track.
+3. Create four (4) non-hostile characters: one each for Welcome, Boston Harbor, Boston Town, and Massachusetts:
+	- Col. Nathanial Rochester (Welcome)
+	- Constable (Boston Harbor)
+	- Robert Morris (Town of Boston)
+	- Cecil (Massachusetts)
+
+4. Create three (3) hostile characters for Boston Harbor and two (2) hostile characters for Boston Town.
+	- wharf rat (Boston Harbor)
+	- drunk fisherman (Boston Harbor)
+	- pirate (Boston Harbor)
+	- tavern wench (Boston Town)
+	- cut throat (Boston Town)
+
+5. Create player's character object with health and fighting attributes:
+	- Maj. Charles Carroll
+
+6. Create first weapon (fists) and second weapon (dagger) for player
+
+7. Create action box for movement/actions/battle options.
+
+8. Create first key location (Town of Boston).
+
+9. Add body background images for at least four (4) areas.
+
+10. Add default space images for at least three areas.
+
+
+**Phase 2: Sprint**<br>
+1. Include placeholder images for all characters created.
+
+2. Create battle function.
+
+3. Create post-battle loot option
+
+4. Create sub-locations for Town of Boston:
+	- Green Dragon tavern (n)
+	- Town Gate
+	- Quincy Market (buy/sell goods)
+	- North End apothecary (buy potions/spells)
+
+5. Create all gameplay functions for at least first three (3) areas.
+
+
+
+
+
+
+**Phase 3: Icebox**<br>
+
+1. Include at least one (1) music track.
+
+2. Add all body background images
+
+3. Add at least four (4) space images per area.
 
 
 
