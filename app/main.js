@@ -42,7 +42,7 @@ app.carroll = {
 			return this.area.getRandomCharacter();
 		}
 		// else if random encoutner, that is char
-		// else defualt NPC
+		// else default NPC
 	}
 };
 
@@ -92,7 +92,7 @@ var render = function() {
 
     // C. Draw possible response and attach events to them
     // TODO ...
-
+    	// $response
 
 
     // D. Draw area image
@@ -100,7 +100,7 @@ var render = function() {
     $areaImage.css("background-image", 'url("' + imageUrl + '")');
 
     // E. Exchange text
-    // TODO ...
+    $text.html(app.carroll.currentCharacter().dialogue[0].text);
 
 
 

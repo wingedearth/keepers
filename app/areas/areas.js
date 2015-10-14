@@ -66,7 +66,8 @@ app.areas = [
 		map:    [ 
 			[app.characters.colrochester]
 		],
-		startLocation: [0, 0]
+		startLocation: [0, 0],
+		defaultNPC: app.characters.colrochester
 	}),
 
 	// Boston Harbor
