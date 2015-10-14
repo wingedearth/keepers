@@ -57,13 +57,35 @@ Area.prototype.getRandomImage = function() {
 
 
 app.areas = [
+	
+	// Welcome
 	new Area({
 		id:     0,
 		name:   "Welcome",
 		images: ["welcome/assets/area0.jpg"],
 		map:    [ 
-			["Col. Nathaniel Rochester"]
+			[app.characters.colrochester]
 		],
 		startLocation: [0, 0]
+	}),
+
+	// Boston Harbor
+	new Area({
+		id:     1,
+		name:   "Boston Harbor",
+		images: [
+			"welcome/assets/area1-1.jpg",
+			"welcome/assets/area1-2.jpg",
+			"welcome/assets/area1-3.jpg",
+			"welcome/assets/area1-4.jpg"
+		],
+		map: [ 
+			[null, 'Constable', null],
+			[null, null, null],
+			[null, null, 'Pirate']
+		],
+		startLocation: [2, 2]
 	})
 ];
+
+

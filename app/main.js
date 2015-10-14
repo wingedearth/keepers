@@ -78,7 +78,7 @@ var render = function() {
      */
 
     var $location  = $("#location"),
-        $charImage = $("#photobox .container"),
+        $charImage = $("#photobox"),
         $response  = $("#actionbox"),
         $areaImage = $("#placebox"),
         $text      = $("#textbox");
@@ -87,10 +87,13 @@ var render = function() {
     $location.text(app.carroll.area.name);
 
     // B. Draw character image
-    $charImage.text(app.carroll.currentCharacter())
+    var character = app.carroll.currentCharacter();
+    $charImage.css('background-image', 'url("' + character.image + '")');
 
     // C. Draw possible response and attach events to them
     // TODO ...
+
+
 
     // D. Draw area image
     var imageUrl = app.carroll.area.getRandomImage();
@@ -98,17 +101,26 @@ var render = function() {
 
     // E. Exchange text
     // TODO ...
+
+
+
 };
 
+// LOAD GAME DATA & ASSETS
 $(document).ready(function() {
-	/* LOAD GAME DATA & ASSETS */
-	var $areas = loadScript("app/areas/areas.js");
-	
-	/* INITIALIZE (SET UP) GAME (SET PC STATE) */
-	$areas.on("load", function() {	
-	    // Carroll arrives at Welcome area
-		app.carroll.arriveAt(app.areas[0])	
+
+	// LOAD CHARACTERS
+	loadScript("app/characters/characters.js").on("load", function() {	
 		
-		render();
+		// LOAD AREAS
+		loadScript("app/areas/areas.js").on("load", function() {	
+			
+			// INITIALIZE (SET UP) GAME
+			// Carroll arrives at Welcome area
+			app.carroll.arriveAt(app.areas[0]);
+			render();
+		});
 	});
 });
+
+
