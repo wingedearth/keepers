@@ -6,13 +6,10 @@ var Exchange = function(text, responses) {
 
 }
 
-
 Exchange.prototype.action = function() {
+	// this is the stub...
 	console.log(this.text);
 }
-
-
-
 
 var Character = function(options) {
 
@@ -78,13 +75,24 @@ app.characters = {
 	})
 };
 
-app.characters.colrochester.dialogue = [
+app.characters.colrochester.exchanges = [
+    // 0
 	new Exchange(
-	  '<p><center><span id="maintitle">Light and Shadow</span> \
-	   <br><br>a game of honor and magic<br>in the historic    \
-	   American Northeast<br><br>&copy; 2015 Andrew A. Anissi  \
-	   </center></p>',
-	   {}
+		'<p><center><span id="maintitle">Light and Shadow</span> \
+		<br><br>a game of honor and magic<br>in the historic    \
+		American Northeast<br><br>&copy; 2015 Andrew A. Anissi  \
+		</center></p>',
+		[{
+			button: "Start",
+			respond: function() {
+				console.log("START");
+			}
+		}, {
+			button: "Continue",
+			respond: function() {
+				console.log("CONTINUE");
+			}
+		}]
 	)
 ];
 

@@ -79,7 +79,7 @@ var render = function() {
 
     var $location  = $("#location"),
         $charImage = $("#photobox"),
-        $response  = $("#actionbox"),
+        $response  = $("#actionlist"),
         $areaImage = $("#placebox"),
         $text      = $("#textbox");
 
@@ -92,7 +92,16 @@ var render = function() {
 
     // C. Draw possible response and attach events to them
     // TODO ...
-    	// $response
+    $response.html("");
+    app.carroll.currentCharacter()
+        .exchanges[0]
+        .responses.forEach(function(response) {
+	    	var $btn = $('<li>', {text: response.button, class: "clickable"});
+	    	$response.append($btn);
+	    	$btn.on('click', function() {
+	    		response.respond();
+    		});
+    });
 
 
     // D. Draw area image
@@ -100,10 +109,7 @@ var render = function() {
     $areaImage.css("background-image", 'url("' + imageUrl + '")');
 
     // E. Exchange text
-    $text.html(app.carroll.currentCharacter().dialogue[0].text);
-
-
-
+    $text.html(app.carroll.currentCharacter().exchanges[0].text);
 };
 
 // LOAD GAME DATA & ASSETS

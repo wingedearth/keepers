@@ -135,7 +135,9 @@ li {
 	background-color: white;
 }
 
-
+.clickable {
+	cursor: pointer;
+}
 
 
 
