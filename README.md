@@ -36,66 +36,81 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 **Phase 1: Current**<br>
 	
-1. Design interface elements and Splash Screen with "start" button.
-	- text box (dialogue and location descriptions)
-	- location box (identify current area)
-	- space box (picture of current surroundings)
-	- action box (interactive buttons for movement, battle, dialogue)
-	- photo box (image of character player is interacting with)
-	- body background (image of current area)
-2. Create initial maps for ten (10) areas:
-	- Welcome
-	- Boston Harbor
-	- Boston Town
-	- Massachusetts
-	- Mohawk Trail
-	- Bath
-	- Genesee Country
-	- New Jerusalem
-	- Genesee River
-	- Fallstown
+1. [x] Design interface elements and Splash Screen with "start" button.
+	- [x] text box (dialogue and location descriptions)
+	- [x] location box (identify current area)
+	- [x] space box (picture of current surroundings)
+	- [x] action box (interactive buttons for movement, battle, dialogue)
+	- [x] photo box (image of character player is interacting with)
+	- [x] body background (image of current area)
 
-3. Create four (4) non-hostile characters: one each for Welcome, Boston Harbor, Boston Town, and Massachusetts:
-	- Col. Nathanial Rochester (Welcome)
-	- Constable (Boston Harbor)
-	- Robert Morris (Town of Boston)
-	- Cecil (Massachusetts)
+2. [x] Create initial maps for ten (10) areas:
+	- [x] Welcome
+	- [x] Boston Harbor
+	- [x] Boston Town
+	- [x] Massachusetts
+	- [x] Mohawk Trail
+	- [x] Bath
+	- [x] Genesee Country
+	- [x] New Jerusalem
+	- [x] Genesee River
+	- [x] Fallstown
 
-4. Create three (3) hostile characters for Boston Harbor and two (2) hostile characters for Boston Town.
-	- wharf rat (Boston Harbor)
-	- drunk fisherman (Boston Harbor)
-	- pirate (Boston Harbor)
-	- tavern wench (Boston Town)
-	- cut throat (Boston Town)
+3. Create eleven (11) non-hostile characters:
+	- [x] Col. Nathanial Rochester (Welcome)
+	- [x] Constable (Boston Harbor)
+	- [x] Robert Morris (Boston Town)
+	- [x] barkeep (Boston Town)
+	- [x] Cecil (Massachusetts)
+	- [x] Capt. Williamson (Bath)
+	- [x] Elias (New Jerusalem)
+	- [x] Universal Friend (New Jerusalem)
+	- [x] Xentha (New Jerusalem)
+	- [x] Splitfoot (Genesee River)
+	- [x] Genushio (Fallstown)
 
-5. Create player's character object with health and fighting attributes:
-	- Maj. Charles Carroll
+4. [x] Create five (5) hostile characters.
+	- [x] wharf rat (Boston Harbor)
+	- [x] drunk fisherman (Boston Harbor)
+	- [x] pirate (Boston Harbor)
+	- [x] tavern wench (Boston Town)
+	- [x] cut throat (Boston Town)
 
-6. Create first weapon (fists) and second weapon (dagger) for player
+5. [x] Create player's character object with health and fighting attributes:
+	- [x] Maj. Charles Carroll
 
-7. Create action box for movement/actions/battle options.
+6. [x] Create four weapons:
+	- [x] fists
+	- [x] dagger
+	- [x] musket
+	- [x] flint-lock rifle
 
-8. Create first key location (Town of Boston).
+7. [x] Add rotating space images for map spaces on all ten areas.
 
-9. Add body background images for at least four (4) areas.
-
-10. Add default space images for at least three areas.
+8. [x] Assign default space images for all areas.
 
 
 **Phase 2: Sprint**<br>
-1. Include placeholder images for all characters created.
 
-2. Create battle function.
+1. [x] Include placeholder images for all characters created.
 
-3. Create post-battle loot option
+2. [ ] Create sub-locations for Town of Boston:
+	- [ ] Green Dragon tavern
+	- [ ] Town Gate
+	- [ ] Quincy Market (buy/sell goods)
+	- [ ] North End apothecary (buy potions/spells)
 
-4. Create sub-locations for Town of Boston:
-	- Green Dragon tavern (n)
-	- Town Gate
-	- Quincy Market (buy/sell goods)
-	- North End apothecary (buy potions/spells)
+3. Create all gameplay functions for at least first three (3) areas.
+	- [x] set up initialize function to initialize variables and maps.
+	- [x] set up reset function to reset variable at start of each new area.
+	- [x] set up render button to set up images each time player moves.
+	- [x] make "start" button start the game.
+	- [ ] create dialogue function
+	- [ ] create battle function.	
 
-5. Create all gameplay functions for at least first three (3) areas.
+4. [ ] Create starting dialogue with Col. Rochester at Welcome/Boston Harbor.
+
+5. [ ] Create random monster generator for player moves on empty spaces.
 
 
 
@@ -109,6 +124,8 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 2. Add all body background images
 
 3. Add at least four (4) space images per area.
+
+4. Create post-battle loot option
 
 
 

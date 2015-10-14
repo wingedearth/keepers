@@ -3,12 +3,33 @@ function keyEvent(id)
 	// Welcome Event
 	if (id==0)
 	{
-		// Col. Rochester dialogue
-		currentPerson = goodGuys[0][0];
-		changeArea = 1;
-		loadText("Good morning, Charles.");
-		waitNow();
-		loadText("Good morning, Charles.\n\nYou took a nasty hit to the head.")
+		while(changeArea == 0)
+		{
+			// Col. Rochester dialogue
+			currentPerson = goodGuys[0][0];
+			$('#textbox').text("Good morning, Charles.");
+			setTimeout(function() { 
+				$('#textbox').html("<span>Good morning, Charles.<br>You took a nasty hit to the head.</span>")
+			}, 1800);
+			setTimeout(function() { 
+				$('#textbox').html("<span>Good morning, Charles.<br>You took a nasty hit to the head.<br>Do you remember where you are?</span>")
+			}, 1800);
+			setTimeout(function() { 
+				$('#actionlist').append("<li id=#nextbutton>I don't remember</li>");
+				$('#nextbutton').css('border', '2px solid black');
+			}, 3800);
+			$('li').hover(
+				function()
+				{ 
+					$(this).css('background-color', 'dodgerblue');
+				},
+				function()
+				{
+					$(this).css('background-color', 'cornsilk');
+				} );
+
+			changeArea = 1;
+		}
 	}
 
 	// Boston Harbor events

@@ -22,11 +22,11 @@ move to within a particular area. Each area has its own map. */
 
 var maps = []; // array of maps, one for each area
 var spaces = []; // array of space photos, several for each area
+var describe = []; // array of terrain descriptions.
 
 // Initialize by setting all zones to null.
 for (var i=0; i<10; i++)
 { maps[i] = null; }
-
 
 // Welcome zone has a 1 x 1 map of 1 space
 maps[0] = [['K']];
@@ -45,8 +45,9 @@ spaces[1] = ["url(/assets/area1/area1-1.jpg)",
 			"url(/assets/area1/area1-3.jpg)",
 			"url(/assets/area1/area1-4.jpg)"];
 
-describe[1] = ["Y"
-					];
+describe[1] = ["You are walking on wooden planks on the docks at Boston Harbor.\nSomething smells fish around here. Probably the fish.",
+				"Seagulls fly overhead and land by your feet. You feed them some crumbs. The seagulls fly away without so much as a thank you."
+				];
 
 // Boston Town has a 4 x 4 map of 16 spaces
 maps[2] = [];

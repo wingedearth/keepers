@@ -50,6 +50,8 @@ function reset(i)
 	// set currentPlace to starting coordinates.
 	currentPlace = [area[i].startx, area[i].starty]
 
+	currentPerson = goodGuys[i][0];
+
 }
 
 // This function should run every time player moves to a new space.
@@ -72,10 +74,6 @@ function loadText(wordums)
 }
 
 
-function waitNow() 
-{
-	setTimeout(function() { }, 3000);
-}
 
 function loadSpace(id, y, x)
 {
@@ -124,11 +122,9 @@ function playArea0()
 	areaIndex = 0;
 	reset(areaIndex);
 	render(areaIndex, currentPlace[0], currentPlace[1]);
-	if (maps[areaIndex][currentPlace[0]][currentPlace[1]] == "A")
-		{
-			//display random area text.
-		}
-	// click through talking using actionbox "next" button
+	keyEvent(areaIndex);
+		areaIndex = 1;
+	playArea1();
 }
 
 
@@ -137,6 +133,7 @@ function playArea1()
 	changeArea = 0;
 	areaIndex = 1;
 	reset(areaIndex);
+	render(areaIndex);
 	while (changeArea == 0)
 	{
 		if (maps[areaIndex][currentPlace[0]][currentPlace[1]] == "K")
@@ -148,8 +145,9 @@ function playArea1()
 		{
 			// check for random monster;
 			// if there's a monster, then pick one.
+			render(areaIndex, currentPlace[0], currentPlace[1]);
 		}
-		
+
 		if (currentPerson != goodGuys[areaIndex][0])
 		{
 			dialogue();
@@ -163,10 +161,14 @@ function playArea1()
 		}
 
 		// at end of dialogue, textbox offers space description
-		render(areaIndex, currentPlace[0], currentPlace[1]);
+		if (maps[areaIndex][currentPlace[0]][currentPlace[1]] == "A")
+		{
+			loadText(describe[areaIndex][1]);
+		}
 		
 		// action box offers directional movement buttons
 		moveAction();
+		changeArea = 1;
 	}
 }
 
@@ -217,6 +219,7 @@ var currentSpace;
 var currentPlace = [];
 var currentMonster= new Object();
 var weapon = [50, 100, 200, 300];
+var weap = ["fists", "dagger", "musket", "flint-lock rifle"]
 var spells = ["curse", "bolt"];
 var armor = [10, 50, 100, 150];
 
@@ -247,7 +250,11 @@ $('li').hover(
 	} );
 
 $('#gamestart').click(function()
-{ 	playArea0; });
+{ 	
+	$('#gamestart').remove();
+	$('#continuegame').remove();
+	playArea0(); 
+});
 
 
 
