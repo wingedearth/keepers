@@ -106,9 +106,14 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 	- [x] set up render button to set up images each time player moves.
 	- [x] make "start" button start the game.
 	- [ ] create dialogue function
-	- [ ] create battle function.	
+	- [ ] create battle function.
 
-4. [ ] Create starting dialogue with Col. Rochester at Welcome/Boston Harbor.
+4. [ ] Create some character dialogues.
+	- Create starting dialogue with Col. Rochester at Welcome/Boston Harbor.
+	- [ ] Create dialogue with constable
+	- [ ] Create wharf rat dialogue
+	- [ ] Create pirate dialogue
+	- [ ] Create drunken fisherman dialogue
 
 5. [ ] Create random monster generator for player moves on empty spaces.
 
@@ -119,13 +124,17 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 **Phase 3: Icebox**<br>
 
-1. Include at least one (1) music track.
+1. Create dialogues for all characters in all areas
 
-2. Add all body background images
+2. Include at music tracks.
 
-3. Add at least four (4) space images per area.
+3. Add all body background images
 
-4. Create post-battle loot option
+4. Add at least four (4) space images per area.
+
+5. Create post-battle loot option
+
+6. Include sound effects
 
 
 

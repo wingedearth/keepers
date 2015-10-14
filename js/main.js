@@ -23,6 +23,7 @@ function initialize()
 	currentPerson = goodGuys[0][0];
 
 	// assign attributes of player's character, Maj. Charles Carroll
+	var carroll = new Object();
 	carroll = 
 	{
 		health: 1000, maxhealth: 1000,
@@ -36,22 +37,26 @@ function initialize()
 				enemy.health -= hit;
 		}
 	}
+	reset(0);
+	render(0);
+	changeArea = 0;
+	hoverFunk();
 }
 
 // This function should run at the start of each new area.
-function reset(i)
+function reset(index)
 {
 	// Change current area to selected area.
-	currentArea = area[i];
+	currentArea = area[index];
 
 	// Change location label to current area
 	$('#location').text(currentArea.location);
 
 	// set currentPlace to starting coordinates.
-	currentPlace = [area[i].startx, area[i].starty]
+	currentPlace = [area[index].startx, area[index].starty]
 
-	currentPerson = goodGuys[i][0];
-
+	// set default person as currentPerson
+	currentPerson = goodGuys[index][0];
 }
 
 // This function should run every time player moves to a new space.
@@ -64,7 +69,18 @@ function render(id)
 
 function dialogue()
 {
-	// set up buttons in actionbox to converse via text
+	// load dialogue text
+	// set up each responsebutton[x]
+		// when clicked, load next dialogue, and remove responsebutton
+		// add next response button and repeat
+
+	// if no response needed, add ok button
+		// if battle=true:
+			// $('li').remove();
+			// battle();
+		// $('li').remove();
+
+
 }
 
 
@@ -102,29 +118,56 @@ function loadSpace(id, y, x)
 		$('#placebox').css('background-image', spaces[id][0]);	
 }
 
-function playGame()
-{
-	playArea0();
-	// playArea1();
-	// playArea2();
-	// playArea3();
-	// playArea4();
-	// playArea5();
-	// playArea6();
-	// playArea7();
-	// playArea8();
-	// playArea9();
+function moved()
+{	
+	render(areaIndex);
+	
+	if (maps[areaIndex][currentPlace[0]][currentPlace[1]] == "K")
+	{
+		keyTest(areaIndex);
+	}
+	else
+	{
+		// check for random monster;
+		// if there's a monster, then pick one.
+		currentPerson = monsterSet[areaIndex][0]; // temporary
+
+		render(areaIndex, currentPlace[0], currentPlace[1]);
+	}
+	if (currentPerson != goodGuys[areaIndex][0])
+		{
+			dialogue();
+			carrollDeadTest();
+		}
+
 }
 
 function playArea0()
 {
-	changeArea = 0;
 	areaIndex = 0;
 	reset(areaIndex);
-	render(areaIndex, currentPlace[0], currentPlace[1]);
-	keyEvent(areaIndex);
-		areaIndex = 1;
-	playArea1();
+	keyTest(areaIndex);
+	dial = 1;
+	var dialogChooser = rochesterDial();
+	
+	// START BUTTON
+	$('#gamestart').click(function()
+	{ 	
+		$('#gamestart').remove();
+		$('#continuegame').remove();
+		$('#actionlist').append("<li id='roch1'>I do not remember</li>");
+		$('#actionlist').append("<li id='roch2'>Who are you?</li>");
+		$('#actionlist').append("<li id='roch3'></li>");
+		$('#roch1').hide();
+		$('#roch2').hide();
+		$('#roch3').hide();
+		rochesterDial(1);
+	});
+
+
+
+
+
 }
 
 
@@ -134,31 +177,7 @@ function playArea1()
 	areaIndex = 1;
 	reset(areaIndex);
 	render(areaIndex);
-	while (changeArea == 0)
-	{
-		if (maps[areaIndex][currentPlace[0]][currentPlace[1]] == "K")
-		{
-				keyEvent(areaIndex);
-				currentPerson = goodGuys[areaIndex][0];
-		}
-		else
-		{
-			// check for random monster;
-			// if there's a monster, then pick one.
-			render(areaIndex, currentPlace[0], currentPlace[1]);
-		}
-
-		if (currentPerson != goodGuys[areaIndex][0])
-		{
-			dialogue();
-			if (carroll.health < 1)
-				{
-					console.log("Carroll is dead.");
-					$('#photobox').css('background-image', splitfoot.spriteImg);
-					$('#textbox').text('Carroll is dead.');
-					alert("Game over!");
-				}
-		}
+		
 
 		// at end of dialogue, textbox offers space description
 		if (maps[areaIndex][currentPlace[0]][currentPlace[1]] == "A")
@@ -166,10 +185,10 @@ function playArea1()
 			loadText(describe[areaIndex][1]);
 		}
 		
+		moved();
 		// action box offers directional movement buttons
 		moveAction();
 		changeArea = 1;
-	}
 }
 
 
@@ -178,7 +197,15 @@ function playArea1()
 function moveAction()
 {
 	// determine which directions are available for movement
-	// offer available directions as movement buttons
+	// $('li').remove();
+	// if north is available
+		// $('#actionlist').append("<li id=#north>NORTH</li>");
+	// if west is available
+		// $('#actionlist').append("<li id=#west>WEST</li>");
+	// if east is available
+		// $('#actionlist').append("<li id=#east>EAST</li>");
+	// if south is available
+		// $('#actionlist').append("<li id=#south>SOUTH</li>");
 	// set event listener for buttons
 		// move(newY, newX);
 		// render();
@@ -187,9 +214,36 @@ function moveAction()
 function move(y, x)
 {
 	currentPlace = [y, x];
+	render(areaIndex);
 }
 
+// changes button color on rollover
+// run this whenever creating new li buttons
+function hoverFunk() {
+$('li').hover(
+	function()
+	{
+		var self=this;
+		$(self).css('background-color', 'dodgerblue');
+	},
+	function()
+	{
+		var self1=this;
+		$(self1).css('background-color', 'white');
+	} );
+}
 
+function carrollDeadTest()
+{
+	if (carroll.health < 1)
+	{
+		console.log("Carroll is dead.");
+		$('#photobox').css('background-image', splitfoot.spriteImg);
+		$('#textbox').text('Carroll is dead.');
+		alert("Game over!");
+		
+	}
+}
 
 /* ****************** MONSTERS *********************** */
 
@@ -222,13 +276,8 @@ var weapon = [50, 100, 200, 300];
 var weap = ["fists", "dagger", "musket", "flint-lock rifle"]
 var spells = ["curse", "bolt"];
 var armor = [10, 50, 100, 150];
-
-var carroll = new Object();
-
-
-
-
-
+var mission = 0;
+var dial = 0;
 
 
 
@@ -236,25 +285,11 @@ var carroll = new Object();
 
 //set up game and offer "start" and "continue" in actionbox
 initialize();
-reset(0);
-render(0);
 
-$('li').hover(
-	function()
-	{ 
-		$(this).css('background-color', 'dodgerblue');
-	},
-	function()
-	{
-		$(this).css('background-color', 'cornsilk');
-	} );
+playArea0(); 
 
-$('#gamestart').click(function()
-{ 	
-	$('#gamestart').remove();
-	$('#continuegame').remove();
-	playArea0(); 
-});
+
+// ROCHESTERDIAL BUTTON
 
 
 

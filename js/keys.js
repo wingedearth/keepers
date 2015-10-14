@@ -1,35 +1,9 @@
-function keyEvent(id)
+function keyTest(id)
 {
 	// Welcome Event
 	if (id==0)
 	{
-		while(changeArea == 0)
-		{
-			// Col. Rochester dialogue
-			currentPerson = goodGuys[0][0];
-			$('#textbox').text("Good morning, Charles.");
-			setTimeout(function() { 
-				$('#textbox').html("<span>Good morning, Charles.<br>You took a nasty hit to the head.</span>")
-			}, 1800);
-			setTimeout(function() { 
-				$('#textbox').html("<span>Good morning, Charles.<br>You took a nasty hit to the head.<br>Do you remember where you are?</span>")
-			}, 1800);
-			setTimeout(function() { 
-				$('#actionlist').append("<li id=#nextbutton>I don't remember</li>");
-				$('#nextbutton').css('border', '2px solid black');
-			}, 3800);
-			$('li').hover(
-				function()
-				{ 
-					$(this).css('background-color', 'dodgerblue');
-				},
-				function()
-				{
-					$(this).css('background-color', 'cornsilk');
-				} );
-
-			changeArea = 1;
-		}
+		currentPerson = colrochester;
 	}
 
 	// Boston Harbor events
@@ -65,8 +39,8 @@ function keyEvent(id)
 
 		if (currentPlace == [0, 1])
 		{
-		// Green Dragon Tavern with Robert Morris
-		mission = 1;
+			// Green Dragon Tavern with Robert Morris
+			mission = 1;
 		}		
 
 		if (currentPlace == [1, 1])
