@@ -75,18 +75,91 @@ app.areas = [
 		id:     1,
 		name:   "Boston Harbor",
 		images: [
-			"welcome/assets/area1-1.jpg",
-			"welcome/assets/area1-2.jpg",
-			"welcome/assets/area1-3.jpg",
-			"welcome/assets/area1-4.jpg"
+			"bostonharbor/assets/area1-1.jpg",
+			"bostonharbor/assets/area1-2.jpg",
+			"bostonharbor/assets/area1-3.jpg",
+			"bostonharbor/assets/area1-4.jpg"
 		],
 		map: [ 
 			[null, 'Constable', null],
 			[null, null, null],
 			[null, null, 'Pirate']
 		],
-		startLocation: [2, 2]
-	})
+		startLocation: [2, 2],
+		randomChars: [
+			app.characters.pirate,
+			app.characters.wharfRat,
+			app.characters.fisherman
+		],
+		defaultNPC: app.characters.colrochester
+	}),
+
+	// Boston Town
+	new Area({
+		id:     2,
+		name:   "Boston Town",
+		images: [
+			"bostontown/assets/area2-1.jpg",
+			"bostontown/assets/area2-2.jpg",
+			"bostontown/assets/area2-3.jpg"
+		],
+		map: [ 
+			[null, 'Morris', null, 'Apothecary'],
+			[null, 'Barkeep', null, null],
+			[null, null, null, null],
+			['Guard', null, app.characters.colrochester, null]
+		],
+		startLocation: [3, 2],
+		randomChars: [
+			app.characters.tavernwench,
+			app.characters.cutthroat
+		],
+		defaultNPC: app.characters.constable
+	}),
+
+	// Massachusetts
+	new Area({
+		id:     3,
+		name:   "Massachusetts",
+		images: [
+			"massachusetts/assets/area3-1.jpg",
+			"massachusetts/assets/area3-2.jpg",
+			"massachusetts/assets/area3-3.jpg",
+			"massachusetts/assets/area3-4.jpg",
+			"massachusetts/assets/area3-5.jpg"
+		],
+		map: [ 
+				[null, null, null, null, null],
+				[null, app.characters.traveler, null, null, null],
+				[null, null, null, null, app.characters.cecil],
+				[null, null, null, null, null]
+		],
+		startLocation: [2, 4],
+		randomChars: [
+			app.characters.cutthroat
+		],
+		defaultNPC: app.characters.cecil
+	}),
+
+	// The Mohawk Trail
+	new Area({
+		id:     4,
+		name:   "The Mohawk Trail",
+		images: [
+			"mohawktrail/assets/area4-1.jpg",
+			"mohawktrail/assets/area4-2.jpg"
+		],
+		map: [ 
+				[null, null, null, null, null, null, null, null, null , app.characters.cecil],
+				[null, app.characters.williamson, null, null, null, null, null, null, null, null]
+		],
+		startLocation: [2, 4],
+		randomChars: [
+			app.characters.mohawkscout
+		],
+		defaultNPC: app.characters.cecil
+	}),
+
 ];
 
 

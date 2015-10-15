@@ -1,5 +1,3 @@
-console.log('app/main.js loaded...');
-
 /* GLOBAL MODEL DEFINITION */
 
 var app = {
@@ -7,7 +5,7 @@ var app = {
 	characters: []
 };
 
-// Our hero enters stage left...
+// Define Player's Character Object
 app.carroll = {
 	name:     "Maj. Charles Carroll",
 	area:     null,
@@ -33,16 +31,21 @@ app.carroll = {
 		// render();
 	},
 	currentCharacter: function() {
-		// if key event, that is the char
+		// set current location coordinates
 		var mapY = this.location[0];
 		var mapX = this.location[1];
+
+		// if key location, location's character is current character
 		if (this.area.map[mapY][mapX] !== null) {
 			return this.area.map[mapY][mapX];
-		} else if(this.area.isRandomInteraction()) {
+		} 
+
+		// if there's a random encounter, return random character
+		else if(this.area.isRandomInteraction()) {
 			return this.area.getRandomCharacter();
 		}
-		// else if random encoutner, that is char
-		// else default NPC
+		
+		return this.area.defaultNPC;
 	}
 };
 
@@ -83,7 +86,7 @@ var render = function() {
         $areaImage = $("#placebox"),
         $text      = $("#textbox");
 
-    // A. Draw location
+    // A. Write location name
     $location.text(app.carroll.area.name);
 
     // B. Draw character image
@@ -91,7 +94,6 @@ var render = function() {
     $charImage.css('background-image', 'url("' + character.image + '")');
 
     // C. Draw possible response and attach events to them
-    // TODO ...
     $response.html("");
     app.carroll.currentCharacter()
         .exchanges[0]
@@ -106,8 +108,10 @@ var render = function() {
 
     // D. Draw area image
     var imageUrl = app.carroll.area.getRandomImage();
+    if (character.keyImage != null)
+    	{ imageURL = character.keyImage; }
     $areaImage.css("background-image", 'url("' + imageUrl + '")');
-
+    
     // E. Exchange text
     $text.html(app.carroll.currentCharacter().exchanges[0].text);
 };
