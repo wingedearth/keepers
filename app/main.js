@@ -125,7 +125,7 @@ $(document).ready(function() {
 		// LOAD AREAS
 		loadScript("app/areas/areas.js").on("load", function() {	
 			
-			// INITIALIZE (SET UP) GAME
+			// INITIALIZE GAME
 			// Carroll arrives at Welcome area
 			app.carroll.arriveAt(app.areas[0]);
 			render();

@@ -166,6 +166,19 @@ app.characters = {
 		defense:    150,
 		image:      "/app/characters/mohawkscout.jpg",
 		keyImage: 	null,
+		items:      ["musket"]
+	}),
+
+	// Tory
+	tory: new Character({
+		health:     250,
+		name: 		"Tory",
+		isHostile:  true,
+		isMerchant: false,
+		strength:   175,
+		defense:    175,
+		image:      "/app/characters/tory.jpg",
+		keyImage: 	null,
 		items:      ["flint-lock rifle"]
 	}),
 
@@ -178,6 +191,19 @@ app.characters = {
 		strength:   600,
 		defense:    600,
 		image:      "/app/characters/williamson.jpg",
+		keyImage: 	null,
+		items:      []
+	}),
+
+	// Peregrine Fitzhugh
+	fitzhugh: new Character({
+		health:     5000,
+		name: 		"Peregrine Fitzhugh",
+		isHostile:  false,
+		isMerchant: false,
+		strength:   600,
+		defense:    600,
+		image:      "/app/characters/fitzhugh.jpg",
 		keyImage: 	null,
 		items:      []
 	}),

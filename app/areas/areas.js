@@ -160,6 +160,25 @@ app.areas = [
 		defaultNPC: app.characters.cecil
 	}),
 
+	// Bath
+	new Area({
+		id:     5,
+		name:   "Bath",
+		images: [
+			"bath/assets/area5-1.jpg",
+		],
+		map: [ 
+				[null, app.characters.fitzhugh, null],
+				[null, app.characters.williamson, null],
+				[null, null, null]
+		],
+		startLocation: [1, 1],
+		randomChars: [
+			app.characters.tory
+		],
+		defaultNPC: app.characters.cecil
+	})
+
 ];
 
 
