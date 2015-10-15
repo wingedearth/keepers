@@ -3,15 +3,16 @@ console.log('app/characters/characters.js is now loaded.....');
 
 var Character = function(options) {
 
-	this.health 	= options.health;
-	this.fullHealth = options.health;
-	this.name 		= options.name;
-	this.isHostile 	= options.isHostile;
-	this.isMerchant = options.isMerchant;
-	this.strength 	= options.strength;
-	this.defense 	= options.defense;
-	this.image 		= options.image;
-	this.items		= options.items;
+	this.health 			= options.health;
+	this.fullHealth 		= options.health;
+	this.name 				= options.name;
+	this.isHostile 			= options.isHostile;
+	this.isMerchant 		= options.isMerchant;
+	this.strength 			= options.strength;
+	this.defense 			= options.defense;
+	this.image 				= options.image;
+	this.items				= options.items;
+	this.keyExchangeIndex 	= options.keyExchangeIndex;
 };
 
 app.characters = {
@@ -26,7 +27,8 @@ app.characters = {
 		defense:    100000,
 		image:      "/app/characters/nathanialrochester.jpg",
 		keyImage:   null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	}),
 
 	// Pirate
@@ -52,7 +54,8 @@ app.characters = {
 		defense:    10,
 		image:      "/app/characters/wharfrat.jpg",
 		keyImage:   null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	}),
 
 	// Drunken Fisherman
@@ -65,7 +68,8 @@ app.characters = {
 		defense:    10,
 		image:      "/app/characters/fisherman.jpg",
 		keyImage:   null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	}),
 
 	// Constable
@@ -78,7 +82,8 @@ app.characters = {
 		defense:    600,
 		image:      "/app/characters/constable.jpg",
 		keyImage:   null,
-		items:      ["new clothes"]
+		items:      ["new clothes"],
+		keyExchangeIndex: 0
 	}),
 
 	// Robert Morris
@@ -91,7 +96,8 @@ app.characters = {
 		defense:    600,
 		image:      "/app/characters/morris.jpg",
 		keyImage:   "/app/characters/governorsmansion.jpg",
-		items:      ["mission"]
+		items:      ["mission"],
+		keyExchangeIndex: 0
 	}),
 
 	// Tavern Wench
@@ -104,7 +110,8 @@ app.characters = {
 		defense:    20,
 		image:      "/app/characters/tavernwench.jpg",
 		keyImage:   null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	}),
 
 	// Barkeep
@@ -117,7 +124,8 @@ app.characters = {
 		defense:    100,
 		image:      "/app/characters/barkeep.jpg",
 		keyImage: 	"/app/characters/greendragon.jpg", 
-		items:      ["Harpoon IPA", "Sam Adams"]
+		items:      ["Harpoon IPA", "Sam Adams"],
+		keyExchangeIndex: 0
 	}),
 
 	// Apothecary
@@ -130,7 +138,8 @@ app.characters = {
 		defense:    100,
 		image:      "/app/characters/apothecary.jpg",
 		keyImage: 	"/app/characters/apothecarystore.jpg", 
-		items:      ["healing potion", "curse"]
+		items:      ["healing potion", "curse"],
+		keyExchangeIndex: 0
 	}),
 
 	// Cecil
@@ -143,7 +152,8 @@ app.characters = {
 		defense:    500,
 		image:      "/app/characters/cecil.jpg",
 		keyImage: 	null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	}),
 
 	// Mohawk Scout
@@ -156,7 +166,8 @@ app.characters = {
 		defense:    150,
 		image:      "/app/characters/mohawkscout.jpg",
 		keyImage: 	null,
-		items:      ["musket"]
+		items:      ["musket"],
+		keyExchangeIndex: 0
 	}),
 
 	// Tory
@@ -169,7 +180,8 @@ app.characters = {
 		defense:    175,
 		image:      "/app/characters/tory.jpg",
 		keyImage: 	null,
-		items:      ["flint-lock rifle"]
+		items:      ["flint-lock rifle"],
+		keyExchangeIndex: 0
 	}),
 
 	// Williamson
@@ -182,7 +194,8 @@ app.characters = {
 		defense:    600,
 		image:      "/app/characters/williamson.jpg",
 		keyImage: 	null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	}),
 
 	// Peregrine Fitzhugh
@@ -195,7 +208,8 @@ app.characters = {
 		defense:    600,
 		image:      "/app/characters/fitzhugh.jpg",
 		keyImage: 	null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	}),
 
 	// Elias
@@ -208,7 +222,8 @@ app.characters = {
 		defense:    600,
 		image:      "/app/characters/elias.jpg",
 		keyImage: 	null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	}),
 
 	// The Universal Friend
@@ -221,7 +236,8 @@ app.characters = {
 		defense:    600,
 		image:      "/app/characters/ufriend.jpg",
 		keyImage: 	null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	}),
 
 	// Xentha
@@ -234,7 +250,8 @@ app.characters = {
 		defense:    100,
 		image:      "/app/characters/xentha.jpg",
 		keyImage: 	null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	}),
 
 	// Splitfoot
@@ -247,7 +264,8 @@ app.characters = {
 		defense:    1000000,
 		image:      "/app/characters/splitfoot.jpg",
 		keyImage: 	null,
-		items:      []
+		items:      [],
+		keyExchangeIndex: 0
 	})
 };
 
@@ -263,6 +281,8 @@ app.characters.colrochester.exchanges = [
 			button: "Start",
 			respond: function() {
 				console.log("START");
+				app.characters.colrochester.keyExchangeIndex = 1;
+				render();
 			}
 		}, {
 			button: "Continue",
@@ -283,14 +303,50 @@ app.characters.colrochester.exchanges = [
 			button: "I do not remember.",
 			respond: function() {
 				console.log("No");
+				app.characters.colrochester.keyExchangeIndex = 2;
+				render();	
 			}
 		}, {
 			button: "Who are you?",
 			respond: function() {
 				console.log("who?");
+				app.characters.colrochester.keyExchangeIndex = 2;
+				render();
 			}
 		}]
-	})
+	}),
+
+	// 2
+	new Exchange({
+		msg: "<p>I am your friend, Col. Nathanial Rochester.\
+		I accompanied you from Maryland to introduce you to \
+		Mr. Robert Morris, presently staying here in \
+		Boston, Massachusetts. You recently inherited a vast estate,\
+		but you lack the funds to sustain it. Mr. Morris is the \
+		richest man in America in 1791 and can provide the financing you need\
+		to get your house in order.<br>Are you ready to disembark?</p>",
+		
+		responses: [{
+			button: "I am ready, Sir.",
+			respond: function() {
+				console.log("Yes");
+				app.characters.colrochester.keyExchangeIndex = 3;
+			}
+		}, {
+			button: "Sure, whatever.",
+			respond: function() {
+				console.log("sure");
+				app.characters.colrochester.keyExchangeIndex = 3;
+			}
+		}, {
+			button: "Fo Sheezy!",
+			respond: function() {
+				console.log("for sure.");
+				app.characters.colrochester.keyExchangeIndex = 3;
+			}
+		}]
+	}),
+
 ];
 
 

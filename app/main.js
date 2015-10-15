@@ -38,7 +38,7 @@ app.carroll = {
 		var mapX = this.location[1];
 
 		// if key location, location's character is current character
-		if (this.area.map[mapY][mapX] !== null) {
+		if ( this.isKeyLocation() ) {
 			return this.area.map[mapY][mapX];
 		} 
 
@@ -46,8 +46,9 @@ app.carroll = {
 		else if(this.area.isRandomInteraction()) {
 			return this.area.getRandomCharacter();
 		}
-		
-		return this.area.defaultNPC;
+		else {
+			return this.area.defaultNPC;
+		}
 	},
 	isKeyLocation: function() {
 		// set current location coordinates
@@ -77,7 +78,7 @@ var loadScript = function(url) {
 /* DEFINE RENDER */
 
 var render = function() {
-	/* Our page has five parts:
+	/* The user interface has five parts:
 	 * ┏━━━━━━━━━━━━┳━━━━━━━━━━━━┓
 	 * ┃            ┃ A location ┃
 	 * ┃     E      ┣━━━━━━━━━━━━┫
@@ -106,22 +107,26 @@ var render = function() {
     var character = app.carroll.currentCharacter();
     $charImage.css('background-image', 'url("' + character.image + '")');
 
-    // C. Draw possible response and attach events to them
 
-    // clear response buttons
-    $response.html("");
+    // C. Draw response buttons and attach events to them
+    
+    $response.html(""); // clear response buttons
 
-    //determine whether on default space
-
-    app.carroll.currentCharacter().exchanges[0]
-        .responses.forEach(function(response) {
-	    	var $btn = $('<li>', {text: response.button, class: "clickable"});
-	    	$response.append($btn);
-	    	$btn.on('click', function() {
-	    		response.respond();
-    		});
-    });
-
+    var currentChar = app.carroll.currentCharacter();
+    if ( app.carroll.isKeyLocation() ) {
+    	// key exchange
+	    currentChar.exchanges[currentChar.keyExchangeIndex]
+	        .responses.forEach(function(response) {
+		    	var $btn = $('<li>', {text: response.button, class: "clickable"});
+		    	$response.append($btn);
+		    	$btn.on('click', function() {
+		    		response.respond();
+	    		});
+	    	});
+    }
+    else {
+	    // default response, based on area / defaultNPC
+	}
 
     // D. Draw area image
     var imageUrl = app.carroll.area.getRandomImage();
@@ -129,8 +134,15 @@ var render = function() {
     	{ imageURL = character.keyImage; }
     $areaImage.css("background-image", 'url("' + imageUrl + '")');
     
-    // E. Exchange text
-    $text.html(app.carroll.currentCharacter().exchanges[0].msg);
+    // E. Insert exchange text
+    $text.html("");
+    if ( app.carroll.isKeyLocation() ) {
+    	$text.html(currentChar.exchanges[currentChar.keyExchangeIndex].msg);
+    }
+    else {    
+    	// default exchange, based on area / defaultNPC
+    }
+    console.log(currentChar.keyExchangeIndex);
 };
 
 // LOAD GAME DATA & ASSETS

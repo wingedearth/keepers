@@ -1,8 +1,10 @@
 console.log('app/exchanges/exchanges.js is loaded...');
 
 var Exchange = function(options) {
-	this.msg 		= options.msg;
-	this.responses 	= options.responses;
+	this.msg 		         = options.msg;
+	this.responses 	         = options.responses;
+	
+
 	//
 
 }
