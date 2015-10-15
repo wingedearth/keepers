@@ -47,13 +47,13 @@ Area.prototype.isRandomInteraction = function() {
 
 Area.prototype.getRandomCharacter = function() {
 	var len = this.randomChars.length;
-	var randomIndex = Math.floor(Math.random()*len)
+	var randomIndex = Math.floor(Math.random()*len);
 	return this.randomChars[randomIndex];
 };
 
 Area.prototype.getRandomImage = function() {
 	var len = this.images.length;
-	var randomIndex = Math.floor(Math.random()*len)
+	var randomIndex = Math.floor(Math.random()*len);
 	return "/app/areas/" + this.images[randomIndex];
 };
 

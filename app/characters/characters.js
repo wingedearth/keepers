@@ -316,9 +316,40 @@ var currentChar;
 var isKey;
 var fight = 0;
 
+/* *******************   BATTLES   ************************* */
+
+function melee() {
+	// player attacks
+	currentChar = app.carroll.currentChar();
+	currentChar.health = 0 // enemy dies (temporary)
+
+	if (currentChar.health > 0) {
+		// if still alive, currentChar attacks
+	} else {
+		currentChar.keyExchangeIndex = 0;
+		currentChar = area.defaultNPC;
+	}
+}
+
+function retreat() {
+	var testRetreat = Math.floor(Math.random()*2);
+	if (testRetreat == 1) {
+		return;
+	} else { // if retreat is successfull:
+		currentChar.keyExchangeIndex = 0;
+		currentChar = area.defaultNPC;
+	}
+}
 
 
 
+
+/* *******************   MOVEMENT   ************************* */
+
+var $nbtn = $('<li>', {text: "NORTH", class: "clickable"});
+var $wbtn = $('<li>', {text: "WEST", class: "clickable"});
+var $ebtn = $('<li>', {text: "EAST", class: "clickable"});
+var $sbtn = $('<li>', {text: "SOUTH", class: "clickable"});
 
 
 /* **********   INDIVIDUAL CHARACTER EXCHANGES   ************* */
@@ -456,7 +487,7 @@ app.characters.pirate.exchanges = [
 
 	// 1
 	new Exchange({
-		msg: "<p>Here's my second message, matey!</p>",
+		msg: "<p>Avast!</p>",
 	
 		responses: [{
 			button: "BLAH!",
@@ -475,6 +506,45 @@ app.characters.pirate.exchanges = [
 			//}
 		}]
 	})
-
 ];
 
+// WHARF RAT'S EXCHANGES
+app.characters.wharfRat.exchanges = [
+
+    // 0
+	new Exchange({
+		msg: "<p>EEK! EEK! HISS! KILL!</p>",
+	
+		responses: [{
+			button: "FIGHT!",
+			respond: function() {
+				console.log("fight");
+				app.characters.wharfRat.keyExchangeIndex = 1;
+				render();
+			}
+		}]
+	}),
+
+	// 1
+	new Exchange({
+		msg: "<p>EEK! EEK! HISSSSSSSSSS!</p>",
+	
+		responses: [{
+			button: "ATTACK!",
+			respond: function() {
+				console.log("Attack");
+				app.characters.wharfRat.keyExchangeIndex = 1;
+				melee();
+				render();
+			}
+		}, {
+			button: "RETREAT!",
+			respond: function() {
+				console.log("Retreat");
+				app.characters.wharfRat.keyExchangeIndex = 1;
+				retreat();
+				render();
+			}
+		}]
+	})	
+];

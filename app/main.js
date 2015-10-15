@@ -102,26 +102,25 @@ var render = function() {
         $areaImage = $("#placebox"),
         $text      = $("#textbox");
 
-    // A. Write location name
+    // A. Write location name and player's coordinates
     $location.text(app.carroll.area.name);
-    console.log(app.carroll.location);
     var coordX = app.carroll.location[1];
     var coordY = (app.carroll.area.map.length) - (app.carroll.location[0]) - 1;
     $location.append(" (" + coordX + "," + coordY + ")");
 
-    // B. Draw character image
+
+    // B. Display character image
     var character = app.carroll.currentCharacter();
     $charImage.css('background-image', 'url("' + character.image + '")');
 
 
     // C. Draw response buttons and attach events to them
-
     $response.html(""); // clear response buttons
-
     currentChar = app.carroll.currentCharacter();
     isKey = app.carroll.isKeyLocation();
+
     if ( isKey ) {
-    	// key exchange
+    	// key location exchange
 	    currentChar.exchanges[currentChar.keyExchangeIndex]
 	     .responses.forEach(function(response) {
 		    	var $btn = $('<li>', {text: response.button, class: "clickable"});
@@ -132,8 +131,42 @@ var render = function() {
 	    });
     } else if ( currentChar == location.defaultNPC ) {
     	// show movement buttons
+    	if (yCoord < (app.carroll.area.map.length - 1)) {
+    		$response.append($nbtn);
+    			$nbtn.on('click', function() {
+		    		moveTo([ (location[0]+1), (location[1]) ]); //move north;
+		    	});
+    	}
+    	if (xCoord > 0) {
+    		$response.append($wbtn);
+    			$wbtn.on('click', function() {
+		    		moveTo([(location[0]), (location[1]-1)]); //move west;
+		    	});
+    	}
+    	if (xCoord < (app.carroll.area.map[0].length-1)) {
+    		$response.append($ebtn);
+    		$ebtn.on('click', function() {
+		    		moveTo([(location[0]), (location[1]+1)]); //move east;
+		    	});
+    	}
+
+    	if (yCoord > 0) {
+    		$response.append($sbtn);
+    		$sbtn.on('click', function() {
+		    		moveTo([(location[0]-1), (location[1])]); //move south;
+		    	});
+    	}
+
     } else {
 	    // response buttons for random char
+	    currentChar.exchanges[currentChar.keyExchangeIndex]
+	     .responses.forEach(function(response) {
+		    	var $btn = $('<li>', {text: response.button, class: "clickable"});
+		    	$response.append($btn);
+		    	$btn.on('click', function() {
+		    		response.respond();
+	    		});
+	    });
 	}
 
 
