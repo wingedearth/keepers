@@ -37,6 +37,8 @@ var Area = function(options) {
 
 	// not yet implemented
 	this.flavor = (options.flavor || "");
+
+	this.defaultMessage = (options.defaultMessage || "");
 };
 
 Area.prototype.isRandomInteraction = function() {
@@ -81,9 +83,9 @@ app.areas = [
 			"bostonharbor/assets/area1-4.jpg"
 		],
 		map: [ 
-			[null, 'Constable', null],
+			[null, app.characters.constable, null],
 			[null, null, null],
-			[null, null, 'Pirate']
+			[null, null, app.characters.pirate]
 		],
 		startLocation: [2, 2],
 		randomChars: [
@@ -91,7 +93,14 @@ app.areas = [
 			app.characters.wharfRat,
 			app.characters.fisherman
 		],
-		defaultNPC: app.characters.colrochester
+		defaultNPC: app.characters.colrochester,
+		defaultMessage: [
+		     "Boston Harbor is crowded today. Maybe we should stop \
+		     by the aquarium.",
+		     "I bought a lobster roll, but a seagull flew down and ate it.",
+		     "We must make our way to Boston Town, to find Robert Morris."
+		]
+
 	}),
 
 	// Boston Town
@@ -104,10 +113,10 @@ app.areas = [
 			"bostontown/assets/area2-3.jpg"
 		],
 		map: [ 
-			[null, 'Morris', null, 'Apothecary'],
-			[null, 'Barkeep', null, null],
+			[null, app.characters.robertMorris, null, app.characters.apothecary],
+			[null, app.characters.barkeep, null, null],
 			[null, null, null, null],
-			['Guard', null, app.characters.colrochester, null]
+			[app.characters.guard, null, app.characters.colrochester, null]
 		],
 		startLocation: [3, 2],
 		randomChars: [

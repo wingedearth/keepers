@@ -1,4 +1,4 @@
-console.log('app/main.js is loaded...');
+console.log('app/main.js has formed into matter from pure spirit...');
 
 /* GLOBAL MODEL DEFINITION */
 
@@ -6,6 +6,7 @@ var app = {
 	areas:      [],
 	characters: []
 };
+var newRender = 0;
 
 // Define Player's Character Object
 app.carroll = {
@@ -63,7 +64,7 @@ app.carroll = {
 	}
 };
 
-/* DEFINE FILE-FINDING AND FILE-LOADING HELPERS */
+/* DEFINE A FUNCTION THAT LOADS SCRIPT FILES */
 
 var loadScript = function(url) {
 	var script  = document.createElement('script');
@@ -78,6 +79,7 @@ var loadScript = function(url) {
 /* DEFINE RENDER */
 
 var render = function() {
+
 	/* The user interface has five parts:
 	 * ┏━━━━━━━━━━━━┳━━━━━━━━━━━━┓
 	 * ┃            ┃ A location ┃
@@ -102,6 +104,10 @@ var render = function() {
 
     // A. Write location name
     $location.text(app.carroll.area.name);
+    console.log(app.carroll.location);
+    var coordX = app.carroll.location[1];
+    var coordY = (app.carroll.area.map.length) - (app.carroll.location[0]) - 1;
+    $location.append(" (" + coordX + "," + coordY + ")");
 
     // B. Draw character image
     var character = app.carroll.currentCharacter();
@@ -109,24 +115,27 @@ var render = function() {
 
 
     // C. Draw response buttons and attach events to them
-    
+
     $response.html(""); // clear response buttons
 
-    var currentChar = app.carroll.currentCharacter();
-    if ( app.carroll.isKeyLocation() ) {
+    currentChar = app.carroll.currentCharacter();
+    isKey = app.carroll.isKeyLocation();
+    if ( isKey ) {
     	// key exchange
 	    currentChar.exchanges[currentChar.keyExchangeIndex]
-	        .responses.forEach(function(response) {
+	     .responses.forEach(function(response) {
 		    	var $btn = $('<li>', {text: response.button, class: "clickable"});
 		    	$response.append($btn);
 		    	$btn.on('click', function() {
 		    		response.respond();
 	    		});
-	    	});
-    }
-    else {
-	    // default response, based on area / defaultNPC
+	    });
+    } else if ( currentChar == location.defaultNPC ) {
+    	// show movement buttons
+    } else {
+	    // response buttons for random char
 	}
+
 
     // D. Draw area image
     var imageUrl = app.carroll.area.getRandomImage();
@@ -134,34 +143,36 @@ var render = function() {
     	{ imageURL = character.keyImage; }
     $areaImage.css("background-image", 'url("' + imageUrl + '")');
     
+
     // E. Insert exchange text
     $text.html("");
     if ( app.carroll.isKeyLocation() ) {
     	$text.html(currentChar.exchanges[currentChar.keyExchangeIndex].msg);
     }
-    else {    
-    	// default exchange, based on area / defaultNPC
+    else if ( currentChar == location.defaultNPC ) {
+    	// random default exchange for area
+    	$text.html(location.defaultMessage[0]);
     }
-    console.log(currentChar.keyExchangeIndex);
+    else {    
+    	// random char dialogue
+    	$text.html("random character dialogue goes here.");
+    }
 };
 
 // LOAD GAME DATA & ASSETS
 $(document).ready(function() {
 
-	// LOAD EXCHANGES
-	loadScript("app/exchanges/exchanges.js").on("load", function() {
+	// LOAD CHARACTERS
+	loadScript("app/characters/characters.js").on("load", function() {	
+		
+		// LOAD AREAS
+		loadScript("app/areas/areas.js").on("load", function() {	
 
-		// LOAD CHARACTERS
-		loadScript("app/characters/characters.js").on("load", function() {	
-			
-			// LOAD AREAS
-			loadScript("app/areas/areas.js").on("load", function() {	
-				
-				// INITIALIZE GAME
-				// Carroll arrives at Welcome area
-				app.carroll.arriveAt(app.areas[0]);
-				render();
-			});
+			// INITIALIZE GAME
+
+			// Carroll arrives at Welcome area
+			app.carroll.arriveAt(app.areas[0]);
+			render();
 		});
 	});
 });

@@ -1,4 +1,4 @@
-console.log('app/characters/characters.js is now loaded.....');
+console.log('app/characters/characters.js has awakened.....');
 
 
 var Character = function(options) {
@@ -41,7 +41,8 @@ app.characters = {
 		defense:    10,
 		image:      "/app/characters/assets/pirate.jpg",
 		keyImage:   null,
-		items:      ["dagger"]
+		items:      ["dagger"],
+		keyExchangeIndex: 0
 	}),
 
 	// Wharf Rat
@@ -72,7 +73,7 @@ app.characters = {
 		keyExchangeIndex: 0
 	}),
 
-	// Cut Throad
+	// Cut Throat
 	cutthroat: new Character({
 		health:     120,
 		name: 		"Cut Throat",
@@ -97,6 +98,20 @@ app.characters = {
 		image:      "/app/characters/assets/constable.jpg",
 		keyImage:   null,
 		items:      ["new clothes"],
+		keyExchangeIndex: 0
+	}),
+
+	// Guard
+	guard: new Character({
+		health:     3000,
+		name: 		"Guard",
+		isHostile:  false,
+		isMerchant: false,
+		strength:   600,
+		defense:    600,
+		image:      "/app/characters/assets/guard.jpg",
+		keyImage:   null,
+		items:      ["musket"],
 		keyExchangeIndex: 0
 	}),
 
@@ -283,10 +298,36 @@ app.characters = {
 	})
 };
 
+
+/* *******************   EXCHANGES   ************************* */
+
+// Define Exchange Constructicon
+var Exchange = function(options) {
+	this.msg 		         = options.msg;
+	this.responses 	         = options.responses;
+}
+
+Exchange.prototype.action = function() {
+	// this is the stub...
+	console.log(this.msg);
+}
+
+var currentChar;
+var isKey;
+var fight = 0;
+
+
+
+
+
+
+/* **********   INDIVIDUAL CHARACTER EXCHANGES   ************* */
+
+	// COL. ROCHESTER'S EXCHANGES
 app.characters.colrochester.exchanges = [
     // 0
 	new Exchange({
-		msg: '<p><center><span id="maintitle">Light and Shadow</span> \
+		msg: '<p><center><span id="maintitle">Keepers of the Western Door</span> \
 		     <br><br>a game of honor and magic<br>in the historic    \
 		     American Northeast<br><br>&copy; 2015 Andrew A. Anissi  \
 		     </center></p>',
@@ -344,23 +385,96 @@ app.characters.colrochester.exchanges = [
 			button: "I am ready, Sir.",
 			respond: function() {
 				console.log("Yes");
-				app.characters.colrochester.keyExchangeIndex = 3;
+				app.characters.colrochester.keyExchangeIndex = 4;
+				app.carroll.arriveAt(app.areas[1]);
+				render();
 			}
 		}, {
 			button: "Sure, whatever.",
 			respond: function() {
 				console.log("sure");
-				app.characters.colrochester.keyExchangeIndex = 3;
+				app.characters.colrochester.keyExchangeIndex = 4;
+				app.carroll.arriveAt(app.areas[1]);
+				render();
 			}
 		}, {
-			button: "Fo Sheezy!",
+			button: "No, I think I'll stay right here.",
 			respond: function() {
-				console.log("for sure.");
+				console.log("nope.");
 				app.characters.colrochester.keyExchangeIndex = 3;
+				render();
 			}
 		}]
 	}),
 
+	// 3
+
+	new Exchange({
+		msg: "<p>I am here to help you, Major Carroll. I ask you again, \
+			 are you ready to leave this ship and enter Boston Town?</p>",
+		
+		responses: [{
+			button: "I am ready, Sir.",
+			respond: function() {
+				console.log("Yes");
+				app.characters.colrochester.keyExchangeIndex = 4;
+				app.carroll.arriveAt(app.areas[1]);
+				render();
+			}
+		},  {
+			button: "Fo Sheezy!",
+			respond: function() {
+				console.log("for sure.");
+				app.characters.colrochester.keyExchangeIndex = 4;
+				app.carroll.arriveAt(app.areas[1]);
+				render();
+			}
+		}]
+	})
+
 ];
 
+
+// PIRATE'S EXCHANGES
+app.characters.pirate.exchanges = [
+
+    // 0
+	new Exchange({
+		msg: "<p>Ahoy, matey! You survived our attack! But \
+	  	 not for long!</p>",
+	
+		responses: [{
+			button: "FIGHT!",
+			respond: function() {
+				console.log("FIGHT");
+				app.characters.pirate.keyExchangeIndex = 1;
+				render();
+			}
+		},	
+		]
+	}),
+
+	// 1
+	new Exchange({
+		msg: "<p>Here's my second message, matey!</p>",
+	
+		responses: [{
+			button: "BLAH!",
+			respond: function() {
+				console.log("BLAH");
+				app.characters.pirate.keyExchangeIndex = 2;
+				render();
+			}
+		},	
+		{
+			// button: "second button text",
+			// respond: function() {
+				// change keyExchangeIndex
+				// other stuff happens
+				// render();
+			//}
+		}]
+	})
+
+];
 
