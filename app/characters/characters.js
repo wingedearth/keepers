@@ -25,7 +25,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   100000,
 		defense:    100000,
-		image:      "/app/characters/nathanialrochester.jpg",
+		image:      "/app/characters/assets/nathanialrochester.jpg",
 		keyImage:   null,
 		items:      [],
 		keyExchangeIndex: 0
@@ -39,7 +39,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   80,
 		defense:    10,
-		image:      "/app/characters/pirate.jpg",
+		image:      "/app/characters/assets/pirate.jpg",
 		keyImage:   null,
 		items:      ["dagger"]
 	}),
@@ -52,7 +52,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   80,
 		defense:    10,
-		image:      "/app/characters/wharfrat.jpg",
+		image:      "/app/characters/assets/wharfrat.jpg",
 		keyImage:   null,
 		items:      [],
 		keyExchangeIndex: 0
@@ -66,7 +66,21 @@ app.characters = {
 		isMerchant: false,
 		strength:   60,
 		defense:    10,
-		image:      "/app/characters/fisherman.jpg",
+		image:      "/app/characters/assets/fisherman.jpg",
+		keyImage:   null,
+		items:      [],
+		keyExchangeIndex: 0
+	}),
+
+	// Cut Throad
+	cutthroat: new Character({
+		health:     120,
+		name: 		"Cut Throat",
+		isHostile:  true,
+		isMerchant: false,
+		strength:   60,
+		defense:    10,
+		image:      "/app/characters/assets/cutthroat.jpg",
 		keyImage:   null,
 		items:      [],
 		keyExchangeIndex: 0
@@ -80,7 +94,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   600,
 		defense:    600,
-		image:      "/app/characters/constable.jpg",
+		image:      "/app/characters/assets/constable.jpg",
 		keyImage:   null,
 		items:      ["new clothes"],
 		keyExchangeIndex: 0
@@ -94,8 +108,8 @@ app.characters = {
 		isMerchant: false,
 		strength:   600,
 		defense:    600,
-		image:      "/app/characters/morris.jpg",
-		keyImage:   "/app/characters/governorsmansion.jpg",
+		image:      "/app/characters/assets/morris.jpg",
+		keyImage:   "/app/characters/assets/governorsmansion.jpg",
 		items:      ["mission"],
 		keyExchangeIndex: 0
 	}),
@@ -108,7 +122,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   80,
 		defense:    20,
-		image:      "/app/characters/tavernwench.jpg",
+		image:      "/app/characters/assets/tavernwench.jpg",
 		keyImage:   null,
 		items:      [],
 		keyExchangeIndex: 0
@@ -122,8 +136,8 @@ app.characters = {
 		isMerchant: true,
 		strength:   100,
 		defense:    100,
-		image:      "/app/characters/barkeep.jpg",
-		keyImage: 	"/app/characters/greendragon.jpg", 
+		image:      "/app/characters/assets/barkeep.jpg",
+		keyImage: 	"/app/characters/assets/greendragon.jpg", 
 		items:      ["Harpoon IPA", "Sam Adams"],
 		keyExchangeIndex: 0
 	}),
@@ -136,8 +150,8 @@ app.characters = {
 		isMerchant: true,
 		strength:   100,
 		defense:    100,
-		image:      "/app/characters/apothecary.jpg",
-		keyImage: 	"/app/characters/apothecarystore.jpg", 
+		image:      "/app/characters/assets/apothecary.jpg",
+		keyImage: 	"/app/characters/assets/apothecarystore.jpg", 
 		items:      ["healing potion", "curse"],
 		keyExchangeIndex: 0
 	}),
@@ -150,7 +164,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   500,
 		defense:    500,
-		image:      "/app/characters/cecil.jpg",
+		image:      "/app/characters/assets/cecil.jpg",
 		keyImage: 	null,
 		items:      [],
 		keyExchangeIndex: 0
@@ -164,7 +178,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   150,
 		defense:    150,
-		image:      "/app/characters/mohawkscout.jpg",
+		image:      "/app/characters/assets/mohawkscout.jpg",
 		keyImage: 	null,
 		items:      ["musket"],
 		keyExchangeIndex: 0
@@ -178,7 +192,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   175,
 		defense:    175,
-		image:      "/app/characters/tory.jpg",
+		image:      "/app/characters/assets/tory.jpg",
 		keyImage: 	null,
 		items:      ["flint-lock rifle"],
 		keyExchangeIndex: 0
@@ -192,7 +206,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   600,
 		defense:    600,
-		image:      "/app/characters/williamson.jpg",
+		image:      "/app/characters/assets/williamson.jpg",
 		keyImage: 	null,
 		items:      [],
 		keyExchangeIndex: 0
@@ -206,7 +220,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   600,
 		defense:    600,
-		image:      "/app/characters/fitzhugh.jpg",
+		image:      "/app/characters/assets/fitzhugh.jpg",
 		keyImage: 	null,
 		items:      [],
 		keyExchangeIndex: 0
@@ -220,7 +234,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   600,
 		defense:    600,
-		image:      "/app/characters/elias.jpg",
+		image:      "/app/characters/assets/elias.jpg",
 		keyImage: 	null,
 		items:      [],
 		keyExchangeIndex: 0
@@ -234,7 +248,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   600,
 		defense:    600,
-		image:      "/app/characters/ufriend.jpg",
+		image:      "/app/characters/assets/ufriend.jpg",
 		keyImage: 	null,
 		items:      [],
 		keyExchangeIndex: 0
@@ -248,7 +262,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   100,
 		defense:    100,
-		image:      "/app/characters/xentha.jpg",
+		image:      "/app/characters/assets/xentha.jpg",
 		keyImage: 	null,
 		items:      [],
 		keyExchangeIndex: 0
@@ -262,7 +276,7 @@ app.characters = {
 		isMerchant: false,
 		strength:   1000000,
 		defense:    1000000,
-		image:      "/app/characters/splitfoot.jpg",
+		image:      "/app/characters/assets/splitfoot.jpg",
 		keyImage: 	null,
 		items:      [],
 		keyExchangeIndex: 0

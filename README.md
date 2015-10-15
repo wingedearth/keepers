@@ -3,7 +3,7 @@
 ###By Andrew A. Anissi
 
 
-#####**Project Title: Castle Quest 2.0 – Light and Shadow**
+#####**Project Title: Keepers of the Western Door**
 <br><br>
 
 1. Description
