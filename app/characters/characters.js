@@ -1,15 +1,5 @@
 console.log('app/characters/characters.js is now loaded.....');
 
-var Exchange = function(text, responses) {
-	this.text = text;
-	this.responses = responses;
-
-}
-
-Exchange.prototype.action = function() {
-	// this is the stub...
-	console.log(this.text);
-}
 
 var Character = function(options) {
 
@@ -263,12 +253,13 @@ app.characters = {
 
 app.characters.colrochester.exchanges = [
     // 0
-	new Exchange(
-		'<p><center><span id="maintitle">Light and Shadow</span> \
-		<br><br>a game of honor and magic<br>in the historic    \
-		American Northeast<br><br>&copy; 2015 Andrew A. Anissi  \
-		</center></p>',
-		[{
+	new Exchange({
+		msg: '<p><center><span id="maintitle">Light and Shadow</span> \
+		     <br><br>a game of honor and magic<br>in the historic    \
+		     American Northeast<br><br>&copy; 2015 Andrew A. Anissi  \
+		     </center></p>',
+		
+		responses: [{
 			button: "Start",
 			respond: function() {
 				console.log("START");
@@ -279,7 +270,27 @@ app.characters.colrochester.exchanges = [
 				console.log("CONTINUE");
 			}
 		}]
-	)
+	}),
+
+	// 1
+	new Exchange({
+		msg: "<p>Good morning, Charles. You are finally awake. \
+		     <br>I'm afraid our ship from Maryland was attacked by pirates.\
+		     <br>You took a nasty hit to the head, but I see no sign of \
+		     permanent damage. <br>Do you remember where you are?</p>",
+		
+		responses: [{
+			button: "I do not remember.",
+			respond: function() {
+				console.log("No");
+			}
+		}, {
+			button: "Who are you?",
+			respond: function() {
+				console.log("who?");
+			}
+		}]
+	})
 ];
 
 

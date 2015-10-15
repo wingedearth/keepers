@@ -1,3 +1,5 @@
+console.log('app/main.js is loaded...');
+
 /* GLOBAL MODEL DEFINITION */
 
 var app = {
@@ -46,6 +48,17 @@ app.carroll = {
 		}
 		
 		return this.area.defaultNPC;
+	},
+	isKeyLocation: function() {
+		// set current location coordinates
+		var mapY = this.location[0];
+		var mapX = this.location[1];
+		if (this.area.map[mapY][mapX] !== null) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 };
 
@@ -94,9 +107,13 @@ var render = function() {
     $charImage.css('background-image', 'url("' + character.image + '")');
 
     // C. Draw possible response and attach events to them
+
+    // clear response buttons
     $response.html("");
-    app.carroll.currentCharacter()
-        .exchanges[0]
+
+    //determine whether on default space
+
+    app.carroll.currentCharacter().exchanges[0]
         .responses.forEach(function(response) {
 	    	var $btn = $('<li>', {text: response.button, class: "clickable"});
 	    	$response.append($btn);
@@ -113,22 +130,26 @@ var render = function() {
     $areaImage.css("background-image", 'url("' + imageUrl + '")');
     
     // E. Exchange text
-    $text.html(app.carroll.currentCharacter().exchanges[0].text);
+    $text.html(app.carroll.currentCharacter().exchanges[0].msg);
 };
 
 // LOAD GAME DATA & ASSETS
 $(document).ready(function() {
 
-	// LOAD CHARACTERS
-	loadScript("app/characters/characters.js").on("load", function() {	
-		
-		// LOAD AREAS
-		loadScript("app/areas/areas.js").on("load", function() {	
+	// LOAD EXCHANGES
+	loadScript("app/exchanges/exchanges.js").on("load", function() {
+
+		// LOAD CHARACTERS
+		loadScript("app/characters/characters.js").on("load", function() {	
 			
-			// INITIALIZE GAME
-			// Carroll arrives at Welcome area
-			app.carroll.arriveAt(app.areas[0]);
-			render();
+			// LOAD AREAS
+			loadScript("app/areas/areas.js").on("load", function() {	
+				
+				// INITIALIZE GAME
+				// Carroll arrives at Welcome area
+				app.carroll.arriveAt(app.areas[0]);
+				render();
+			});
 		});
 	});
 });
