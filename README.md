@@ -27,7 +27,7 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 ##2. Wireframe
 
-![image](assets/wireframe1.JPG =500x)
+![image](assets/wireframe.png =500x)
 
 
 *******
@@ -94,31 +94,33 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 1. [x] Include placeholder images for all characters created.
 
-2. [ ] Create sub-locations for Town of Boston:
-	- [ ] Green Dragon tavern
-	- [ ] Town Gate
-	- [ ] Quincy Market (buy/sell goods)
-	- [ ] North End apothecary (buy potions/spells)
-
-3. Create all gameplay functions for at least first three (3) areas.
+2. Create all gameplay functions for at least first three (3) areas.
 	- [x] set up initialize function to initialize variables and maps.
 	- [x] set up reset function to reset variable at start of each new area.
 	- [x] set up render button to set up images each time player moves.
 	- [x] make "start" button start the game.
-	- [ ] create dialogue function
-	- [ ] create battle function.
+	- [x] create exchange/dialogue functionality
+	- [x] create basic battle functionality
 
-4. [ ] Create some character dialogues.
-	- Create starting dialogue with Col. Rochester at Welcome/Boston Harbor.
-	- [ ] Create dialogue with constable
-	- [ ] Create wharf rat dialogue
-	- [ ] Create pirate dialogue
-	- [ ] Create drunken fisherman dialogue
+4. [x] Create some character exchanges/dialogues.
+	- Create dialogues with: 
+	- [x] Col. Rochester at Welcome/Boston Harbor.
+	- [x] Constable
+	- [x] Wharf Rat
+	- [x] Pirate
+	- [x] Drunken Fisherman
+	- [x] Tavern Wench
+	- [x] Cut Throat
 
-5. [ ] Create random monster generator for player moves on empty spaces.
+5. [x] Create random monster generator for player moves on empty spaces.
 
+6. [x] Create post-battle loot function
 
+7. [x] Add space images for each area.
 
+8. [x] Add movement functionality for the player to move around maps and progress through the game.
+
+9. [x] Add in-game coordinates for player to track his/her own location.
 
 
 
@@ -128,13 +130,23 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 2. Include at music tracks.
 
-3. Add all body background images
+3. Include sound effects
 
-4. Add at least four (4) space images per area.
+4. [ ] Create sub-locations for Town of Boston:
+	- [ ] Green Dragon tavern
+	- [ ] Town Gate
+	- [ ] Quincy Market (buy/sell goods)
+	- [ ] North End apothecary (buy potions/spells)
 
-5. Create post-battle loot option
+5. [ ] Enhance battle functionality to include actual attacks and defenses.
 
-6. Include sound effects
+6. Add full battle functionality that includes actual attacks/defenses, shows weapons used and allows spells to be cast.
+
+8. Add in-game stores for item purchase.
+
+9. Add in-game gold for looting, buying, and selling.
+
+11. Add all characters and dialogue exchanges.
 
 
 
@@ -146,43 +158,43 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 <br>
 
-**<u>Role:</u>** As a Gamer,
+**<u>Role:</u>** As a player,
 
-**<u>Goal:</u>** I would like the game to includes good backgrounds/graphics/imagery,
+**<u>Goal:</u>** I would like the game to includes beautiful imagery matching the character's locations,
 
 **<u>Reason:</u>** so that the in-game world is more attractive.
 
 ********
 
-**<u>Role:</u>** As a Role Playing Gamer,
+**<u>Role:</u>** As a role playing gamer,
 
-**<u>Goal:</u>** I would like the game to take places in an interesting world,
+**<u>Goal:</u>** I would like the game to include movement buttons to navigate through maps directionally,
 
-**<u>Reason:</u>** so that I enjoy spending time immersed in that world.
-
-********
-
-**<u>Role:</u>** Action Gamer
-
-**<u>Goal:</u>** includes a fighting engine with an element of challenge
-
-**<u>Reason:</u>** so that gameplay is fun
+**<u>Reason:</u>** so that I can progress through the game.
 
 ********
 
-**<u>Role:</u>** Fiction Reader
+**<u>Role:</u>** As a gamer,
 
-**<u>Goal:</u>** has interesting characters to interact with
+**<u>Goal:</u>** I would like the game to include a fighting engine,
 
-**<u>Reason:</u>** so that I can appreciate story elements
+**<u>Reason:</u>** so that gameplay is fun and challenging.
 
 ********
 
-**<u>Role:</u>** Adventure Gamer
+**<u>Role:</u>** As a fiction reader,
 
-**<u>Goal:</u>** includes a map of reasonable size
+**<u>Goal:</u>** I would like the game to include many interesting characters to interact with,
 
-**<u>Reason:</u>** so that the game is not so small that it's too easy and not so big that it's too tedious
+**<u>Reason:</u>** so that I can appreciate story elements.
+
+********
+
+**<u>Role:</u>** As an adventure gamer
+
+**<u>Goal:</u>** I would like the game to include maps of reasonable size,
+
+**<u>Reason:</u>** so that the game is not so small that it's too easy and not so big that it's too tedious.
 
 ********
 
@@ -196,7 +208,7 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 **<u>Role:</u>** As a History Buff,
 
-**<u>Goal:</u>** I would like the game to include real places from the American Northeast
+**<u>Goal:</u>** I would like the game to include real places from the American Northeast,
 
 **<u>Reason:</u>** because I can associate with real places and am interested in their history.
 
@@ -218,11 +230,11 @@ Gameplay includes class text-adventure navigation, turned-based battles (in the 
 
 ********
 
-**<u>Role:</u>** As a human with a soul,
+**<u>Role:</u>** As an adventure gamer,
 
-**<u>Goal:</u>** I want the game to include a good variety of music,
+**<u>Goal:</u>** I want the game to include a linear storyline,
 
-**<u>Reason:</u>** because music inspires me.
+**<u>Reason:</u>** so that I can get involved in the interactive story.
 
 ********
 
