@@ -116,6 +116,8 @@ var render = function() {
     app.carroll.isKeyLocation();
     $('#photobox').css('background-image', 'url("' + character.image + '")');
 
+    // X. Display character's name
+    $('#namebox .container').text(character.name);
 
     // C. Draw response buttons and attach events to them
     $response.html(""); // clear response buttons
