@@ -347,10 +347,14 @@ function retreat(enemy) {
 
 	var testRetreat = Math.floor(Math.random()*2);
 	if (testRetreat == 1) {
+		alert("Retreat was unsuccessful. Sorry, Charlie.")
 		return;
+
 	} else { // if retreat is successfull:
+		// reset enemy, remove key from location, and end fight
 		enemy.keyExchangeIndex = 0;
 		(app.carroll.area.map[app.carroll.location[0]][app.carroll.location[1]]) = null;
+		fight = 0;
 	}
 }
 
@@ -462,7 +466,6 @@ app.characters.colrochester.exchanges = [
 			respond: function() {
 				console.log("Yes");
 				app.characters.colrochester.keyExchangeIndex = 4;
-				app.carroll.arriveAt(app.areas[1]);
 				render();
 			}
 		},  {
@@ -470,32 +473,53 @@ app.characters.colrochester.exchanges = [
 			respond: function() {
 				console.log("for sure.");
 				app.characters.colrochester.keyExchangeIndex = 4;
+				render();
+			}
+		}]
+	}),
+
+	// 4
+
+	new Exchange({
+		msg: "<p>Let's be on our way then...<br>Oh no, look out! They're back!"
+		+ "It's a pirate!</p>",
+		
+		responses: [{
+			button: "I am not afraid.",
+			respond: function() {
+				console.log("Yes");
+				app.characters.colrochester.keyExchangeIndex = 5;
+				app.carroll.arriveAt(app.areas[1]);
+				render();
+			}
+		},  {
+			button: "I'll mop the floor with this clown.",
+			respond: function() {
+				console.log("for sure.");
+				app.characters.colrochester.keyExchangeIndex = 5;
 				app.carroll.arriveAt(app.areas[1]);
 				render();
 			}
 		}]
 	}),
 
-		// 4
+	// 5
 
-		new Exchange({
-		msg: "<p>Let's be on our way then...<br>Oh no, look out! They're back!",
-			"It's a pirate!</p>",
+	new Exchange({
+		msg: "<p>Don't look at me. I'm just a kid.</p>",
 		
 		responses: [{
-			button: "I am not afraid.",
+			button: "Where am I?",
 			respond: function() {
-				console.log("Yes");
-				app.characters.colrochester.keyExchangeIndex = 4;
-				app.carroll.arriveAt(app.areas[1]);
+				console.log("Where am I?");
+				app.characters.colrochester.keyExchangeIndex = 5;
 				render();
 			}
 		},  {
-			button: "Oh, I like pirates.",
+			button: "Who am I?",
 			respond: function() {
-				console.log("for sure.");
-				app.characters.colrochester.keyExchangeIndex = 4;
-				app.carroll.arriveAt(app.areas[1]);
+				console.log("who?");
+				app.characters.colrochester.keyExchangeIndex = 5;
 				render();
 			}
 		}]
@@ -586,3 +610,85 @@ app.characters.wharfRat.exchanges = [
 		}]
 	})	
 ];
+
+// DRUNKEN FISHERMAN INTERACTIONS
+app.characters.fisherman.exchanges = [
+
+    // 0
+	new Exchange({
+		msg: "<p>I know what you did last summer!</p>",
+	
+		responses: [{
+			button: "FIGHT!",
+			respond: function() {
+				console.log("fight");
+				app.characters.fisherman.keyExchangeIndex = 1;
+				render();
+			}
+		}]
+	}),
+
+	// 1
+	new Exchange({
+		msg: "<p>Wicked Pissah!</p>",
+	
+		responses: [{
+			button: "ATTACK!",
+			respond: function() {
+				console.log("Attack");
+				app.characters.fisherman.keyExchangeIndex = 1;
+				melee(app.characters.fisherman);
+				render();
+			}
+		}, {
+			button: "RETREAT!",
+			respond: function() {
+				console.log("Retreat");
+				app.characters.fisherman.keyExchangeIndex = 1;
+				retreat(app.character.fisherman);
+				render();
+			}
+		}]
+	})	
+];
+
+// CONSTABLE INTERACTIONS
+app.characters.constable.exchanges = [
+
+    // 0
+	new Exchange({
+		msg: "<p>Good day to you, sir. I am Constable Donnie!</p>",
+	
+		responses: [{
+			button: "FIGHT!",
+			respond: function() {
+				console.log("fight");
+				app.characters.constable.keyExchangeIndex = 1;
+				render();
+			}
+		}]
+	}),
+
+	// 1
+	new Exchange({
+		msg: "<p>Wicked Pissah!</p>",
+	
+		responses: [{
+			button: "ATTACK!",
+			respond: function() {
+				console.log("Attack");
+				app.characters.constable.keyExchangeIndex = 1;
+				render();
+			}
+		}, {
+			button: "RETREAT!",
+			respond: function() {
+				console.log("Retreat");
+				app.characters.constable.keyExchangeIndex = 1;
+				render();
+			}
+		}]
+	})	
+];
+
+
