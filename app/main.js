@@ -6,13 +6,14 @@ var app = {
 	areas:      [],
 	characters: []
 };
-var newRender = 0;
+var character;
 
 // Define Player's Character Object
 app.carroll = {
 	name:     "Maj. Charles Carroll",
 	area:     null,
 	location: null,
+	health:   600, 
 	items: [],
 	magic: {
 		spells:   [],
@@ -29,8 +30,8 @@ app.carroll = {
 		this.area = area;
 		this.moveTo(area.startLocation);
 	},
-	moveTo: function(location) {
-		this.location = location;
+	moveTo: function(newLocation) {
+		this.location = newLocation;
 		// render();
 	},
 	currentCharacter: function() {
@@ -103,64 +104,79 @@ var render = function() {
         $text      = $("#textbox");
 
     // A. Write location name and player's coordinates
-    $location.text(app.carroll.area.name);
+    $location.text(app.carroll.area.name); //location name
+
     var coordX = app.carroll.location[1];
     var coordY = (app.carroll.area.map.length) - (app.carroll.location[0]) - 1;
     $location.append(" (" + coordX + "," + coordY + ")");
 
 
     // B. Display character image
-    var character = app.carroll.currentCharacter();
+    character = app.carroll.currentCharacter();
+    app.carroll.isKeyLocation();
     $charImage.css('background-image', 'url("' + character.image + '")');
 
 
     // C. Draw response buttons and attach events to them
     $response.html(""); // clear response buttons
-    currentChar = app.carroll.currentCharacter();
     isKey = app.carroll.isKeyLocation();
 
     if ( isKey ) {
     	// key location exchange
-	    currentChar.exchanges[currentChar.keyExchangeIndex]
+	    character.exchanges[character.keyExchangeIndex]
 	     .responses.forEach(function(response) {
 		    	var $btn = $('<li>', {text: response.button, class: "clickable"});
 		    	$response.append($btn);
 		    	$btn.on('click', function() {
-		    		response.respond();
+		    		response.respond(character);
 	    		});
 	    });
-    } else if ( currentChar == location.defaultNPC ) {
+    } else if ( character == app.carroll.area.defaultNPC ) {
     	// show movement buttons
-    	if (yCoord < (app.carroll.area.map.length - 1)) {
+    	if (coordY < (app.carroll.area.map.length - 1)) {
     		$response.append($nbtn);
     			$nbtn.on('click', function() {
-		    		moveTo([ (location[0]+1), (location[1]) ]); //move north;
+    				var newY = ((app.carroll.location[0])-1);
+    				var newX = (app.carroll.location[1]);
+    				console.log('new Y: ', newY);
+    				console.log('new X: ', newX);
+		    		app.carroll.moveTo([newY, newX]); //move north;
+		    		render();
 		    	});
     	}
-    	if (xCoord > 0) {
+    	if (coordX > 0) {
     		$response.append($wbtn);
     			$wbtn.on('click', function() {
-		    		moveTo([(location[0]), (location[1]-1)]); //move west;
+    				var newY = (app.carroll.location[0]);
+    				var newX = ((app.carroll.location[1])-1);
+		    		app.carroll.moveTo([newY, newX]); //move west;
+		    		render();
 		    	});
     	}
-    	if (xCoord < (app.carroll.area.map[0].length-1)) {
+    	if (coordX < (app.carroll.area.map[0].length-1)) {
     		$response.append($ebtn);
     		$ebtn.on('click', function() {
-		    		moveTo([(location[0]), (location[1]+1)]); //move east;
+    				var newY = (app.carroll.location[0]);
+    				var newX = ((app.carroll.location[1])+1);
+		    		app.carroll.moveTo([newY, newX]); //move east;
+		    		render();
 		    	});
     	}
 
-    	if (yCoord > 0) {
+    	if (coordY > 0) {
     		$response.append($sbtn);
     		$sbtn.on('click', function() {
-		    		moveTo([(location[0]-1), (location[1])]); //move south;
+    				var newY = ((app.carroll.location[0])+1);
+    				var newX = (app.carroll.location[1]);
+		    		app.carroll.moveTo([newY, newX]); //move south;
+		    		render();
 		    	});
     	}
 
     } else {
 	    // response buttons for random char
-	    currentChar.exchanges[currentChar.keyExchangeIndex]
-	     .responses.forEach(function(response) {
+	    console.log("character: " + character);
+	    character.exchanges[character.keyExchangeIndex].responses.forEach(function(response) {
 		    	var $btn = $('<li>', {text: response.button, class: "clickable"});
 		    	$response.append($btn);
 		    	$btn.on('click', function() {
@@ -180,16 +196,23 @@ var render = function() {
     // E. Insert exchange text
     $text.html("");
     if ( app.carroll.isKeyLocation() ) {
-    	$text.html(currentChar.exchanges[currentChar.keyExchangeIndex].msg);
+    	$text.html(character.exchanges[character.keyExchangeIndex].msg);
     }
-    else if ( currentChar == location.defaultNPC ) {
+    else if ( character == app.carroll.area.defaultNPC ) {
     	// random default exchange for area
-    	$text.html(location.defaultMessage[0]);
+    	var charsLength = app.carroll.area.defaultMessage.length;
+    	var randomIndex = Math.floor(Math.random()*charsLength);
+    	$text.html(app.carroll.area.defaultMessage[charsLength]);
     }
     else {    
     	// random char dialogue
-    	$text.html("random character dialogue goes here.");
+    	$text.text("A random character has approached you.\n")
+    	$text.append(character.exchanges[character.keyExchangeIndex].msg);
     }
+    if (fight==1)
+		{
+			$text.append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
+		}
 };
 
 // LOAD GAME DATA & ASSETS

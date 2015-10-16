@@ -42,12 +42,18 @@ var Area = function(options) {
 };
 
 Area.prototype.isRandomInteraction = function() {
-    return false;
+	var testRandom = Math.floor(Math.random()*8);
+	if (testRandom <= 2) {
+		return false;
+	}
+	else {
+    	return true;
+	}
 };
 
 Area.prototype.getRandomCharacter = function() {
-	var len = this.randomChars.length;
-	var randomIndex = Math.floor(Math.random()*len);
+	var length = this.randomChars.length;
+	var randomIndex = Math.floor(Math.random()*length);
 	return this.randomChars[randomIndex];
 };
 
@@ -98,7 +104,8 @@ app.areas = [
 		     "Boston Harbor is crowded today. Maybe we should stop \
 		     by the aquarium.",
 		     "I bought a lobster roll, but a seagull flew down and ate it.",
-		     "We must make our way to Boston Town, to find Robert Morris."
+		     "We must make our way to Boston Town, to find Robert Morris.",
+		     "The wind at Boston Harbor chills me to the bone. I'm chillin' like a villain."
 		]
 
 	}),

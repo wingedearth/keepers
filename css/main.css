@@ -105,7 +105,7 @@ body {
 	background-color: cornsilk;
 	border-radius: 10px;
 	border: 5px solid darkred;
-	font-size: 15px; font-weight: bold;
+	font-size: 13px; font-weight: bold;
 }
 
 
@@ -123,6 +123,7 @@ p {
 ul {
 	margin: 20% 0px 0px 0px;
 	padding: 4px 0px 4px 0px;
+	vertical-align: top;
 }
 
 li {

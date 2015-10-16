@@ -312,32 +312,45 @@ Exchange.prototype.action = function() {
 	console.log(this.msg);
 }
 
-var currentChar;
 var isKey;
 var fight = 0;
 
+
+
+
 /* *******************   BATTLES   ************************* */
 
-function melee() {
-	// player attacks
-	currentChar = app.carroll.currentChar();
-	currentChar.health = 0 // enemy dies (temporary)
+function melee(enemy) {
 
-	if (currentChar.health > 0) {
-		// if still alive, currentChar attacks
+	$('#textbox').text("BATTLE!");
+
+	// player attacks
+	alert("you attack!");
+	enemy.health = 0 // enemy dies (temporary)
+
+	if (enemy.health > 0) {
+		// if still alive, character attacks
+		$('#textbox').append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
+		alert(enemy.name + " attacks!");
+
 	} else {
-		currentChar.keyExchangeIndex = 0;
-		currentChar = area.defaultNPC;
+		$('#textbox').append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
+		alert(enemy.name + " is dead!");
+		enemy.keyExchangeIndex = 0;
+		(app.carroll.area.map[app.carroll.location[0]][app.carroll.location[1]]) = null;
+		fight = 0;
 	}
 }
 
-function retreat() {
+
+function retreat(enemy) {
+
 	var testRetreat = Math.floor(Math.random()*2);
 	if (testRetreat == 1) {
 		return;
 	} else { // if retreat is successfull:
-		currentChar.keyExchangeIndex = 0;
-		currentChar = area.defaultNPC;
+		enemy.keyExchangeIndex = 0;
+		(app.carroll.area.map[app.carroll.location[0]][app.carroll.location[1]]) = null;
 	}
 }
 
@@ -461,6 +474,31 @@ app.characters.colrochester.exchanges = [
 				render();
 			}
 		}]
+	}),
+
+		// 4
+
+		new Exchange({
+		msg: "<p>Let's be on our way then...<br>Oh no, look out! They're back!",
+			"It's a pirate!</p>",
+		
+		responses: [{
+			button: "I am not afraid.",
+			respond: function() {
+				console.log("Yes");
+				app.characters.colrochester.keyExchangeIndex = 4;
+				app.carroll.arriveAt(app.areas[1]);
+				render();
+			}
+		},  {
+			button: "Oh, I like pirates.",
+			respond: function() {
+				console.log("for sure.");
+				app.characters.colrochester.keyExchangeIndex = 4;
+				app.carroll.arriveAt(app.areas[1]);
+				render();
+			}
+		}]
 	})
 
 ];
@@ -477,8 +515,8 @@ app.characters.pirate.exchanges = [
 		responses: [{
 			button: "FIGHT!",
 			respond: function() {
-				console.log("FIGHT");
 				app.characters.pirate.keyExchangeIndex = 1;
+				fight = 1;
 				render();
 			}
 		},	
@@ -490,20 +528,20 @@ app.characters.pirate.exchanges = [
 		msg: "<p>Avast!</p>",
 	
 		responses: [{
-			button: "BLAH!",
+			button: "ATTACK!",
 			respond: function() {
-				console.log("BLAH");
-				app.characters.pirate.keyExchangeIndex = 2;
+				app.characters.pirate.keyExchangeIndex = 1;
+				melee(app.characters.pirate);
 				render();
 			}
 		},	
 		{
-			// button: "second button text",
-			// respond: function() {
-				// change keyExchangeIndex
-				// other stuff happens
-				// render();
-			//}
+			button: "RETREAT!",
+			respond: function() {
+				app.characters.pirate.keyExchangeIndex = 1;
+				retreat(app.characters.pirate);
+				render();
+			}
 		}]
 	})
 ];
@@ -534,7 +572,7 @@ app.characters.wharfRat.exchanges = [
 			respond: function() {
 				console.log("Attack");
 				app.characters.wharfRat.keyExchangeIndex = 1;
-				melee();
+				melee(app.characters.wharfRat);
 				render();
 			}
 		}, {
@@ -542,7 +580,7 @@ app.characters.wharfRat.exchanges = [
 			respond: function() {
 				console.log("Retreat");
 				app.characters.wharfRat.keyExchangeIndex = 1;
-				retreat();
+				retreat(app.character.wharfRat);
 				render();
 			}
 		}]
