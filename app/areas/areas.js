@@ -60,7 +60,7 @@ Area.prototype.getRandomCharacter = function() {
 Area.prototype.getRandomImage = function() {
 	var len = this.images.length;
 	var randomIndex = Math.floor(Math.random()*len);
-	return "/app/areas/" + this.images[randomIndex];
+	return "app/areas/" + this.images[randomIndex];
 };
 
 
@@ -70,7 +70,7 @@ app.areas = [
 	new Area({
 		id:     0,
 		name:   "Welcome",
-		images: ["welcome/assets/area0.jpg"],
+		images: ["app/areas/welcome/assets/area0.jpg"],
 		map:    [ 
 			[app.characters.colrochester]
 		],
