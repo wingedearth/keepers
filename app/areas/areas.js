@@ -43,7 +43,7 @@ var Area = function(options) {
 
 Area.prototype.isRandomInteraction = function() {
 	var testRandom = Math.floor(Math.random()*8);
-	if (testRandom <= 2) {
+	if (testRandom <= 5) {
 		return false;
 	}
 	else {
@@ -105,7 +105,12 @@ app.areas = [
 		     by the aquarium.",
 		     "I bought a lobster roll, but a seagull flew down and ate it.",
 		     "We must make our way to Boston Town, to find Robert Morris.",
-		     "The wind at Boston Harbor chills me to the bone. I'm chillin' like a villain."
+		     "The wind at Boston Harbor chills me to the bone. I'm chillin' like a villain.",
+		     "Boston is a major port town. Everything arriving by ship must first pass through the Custom House.",
+		     "Ride the ferry from Boston to Salem some time.",
+		     "You'll want to check in with the constable before leaving the harbor.\
+		     Might help to explain that nasty situation with the pirate.",
+		     "If the British ever return, we have defensive forts on the Harbor Islands."
 		]
 
 	}),
@@ -130,7 +135,18 @@ app.areas = [
 			app.characters.tavernwench,
 			app.characters.cutthroat
 		],
-		defaultNPC: app.characters.constable
+		defaultNPC: app.characters.constable,
+		defaultMessage: [
+		     "It's not easy maintaining order in a town most famous for insurrection.",
+		     "You have arrived at another town block. There's a Dunkin Donuts on the corner\
+		     just like every other block in Boston.",
+		     "If you look around, you'll find the Green Dragon Tavern, where the Sons of Liberty started the American Revolution",
+		     "In the North End is the home of Paul Revere. You'll also find many cafes and cannoli shops.",
+		     "Massachusetts farmers and fishermen sell their goods at the Haymarket on Fridays. Try the cherrystone clams!",
+		     "A great place to find dry goods and baubles is at Quincy Market.",
+		     "I hear Robert Morris is in town conducting business at the Governor's Mansion.",
+		     "The night watch and I keep the peace as best we can. But there are always ruffians and wahlburgs around."
+		]
 	}),
 
 	// Massachusetts
