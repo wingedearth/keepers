@@ -70,7 +70,7 @@ app.areas = [
 	new Area({
 		id:     0,
 		name:   "Welcome",
-		images: ["/keepers/app/areas/welcome/assets/area0.jpg"],
+		images: ["app/areas/welcome/assets/area0.jpg"],
 		map:    [ 
 			[app.characters.colrochester]
 		],
