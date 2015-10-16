@@ -894,7 +894,6 @@ app.characters.tavernwench.exchanges = [
 		responses: [{
 			button: "ATTACK!",
 			respond: function() {
-				app.characters.tavernwench.keyExchangeIndex = 1;
 				melee(app.characters.tavernwench);
 				render();
 			}
@@ -902,7 +901,6 @@ app.characters.tavernwench.exchanges = [
 			button: "RETREAT!",
 			respond: function() {
 				console.log("Retreat");
-				app.characters.tavernwench.keyExchangeIndex = 1;
 				retreat(app.character.tavernwench);
 				render();
 			}
@@ -934,7 +932,7 @@ app.characters.cutthroat.exchanges = [
 			button: "ATTACK!",
 			respond: function() {
 				app.characters.cutthroat.keyExchangeIndex = 1;
-				melee(app.characters.tavernwench);
+				melee(app.characters.cutthroat);
 				render();
 			}
 		}, {
@@ -949,3 +947,136 @@ app.characters.cutthroat.exchanges = [
 	})	
 ];
 
+// BARKEEP'S EXCHANGES
+app.characters.barkeep.exchanges = [
+
+    // 0
+	new Exchange({
+		msg: "<p>Good day to you, Sir. The bar's closed now, I'm afraid.</p>",
+	
+		responses: [{
+			button: "Why is the bar closed?",
+			respond: function() {
+				app.characters.barkeep.keyExchangeIndex = 1;
+				render();
+			}
+		}]
+	}),
+
+	// 1
+	new Exchange({
+		msg: "<p>My character hasn't really been set up yet. Sorry\
+			  about that, chief. You'd think someone would set up Sam Malone\
+			  before Diane.</p>",
+	
+		responses: [{
+			button: "Goodbye then.",
+			respond: function() {
+				app.characters.barkeep.keyExchangeIndex = 1;
+				app.carroll.moveTo([2, 1]);
+				render();
+			}
+		}]
+	})	
+];
+
+// ROBERT MORRIS' EXCHANGES
+app.characters.robertMorris.exchanges = [
+
+    // 0
+	new Exchange({
+		msg: "<p>Welcome, Mr. Carroll. I say welcome, because the Governor \
+		has made me feel so at home here in his mansion. Wait...</p>",
+	
+		responses: [{
+			button: "What's wrong?",
+			respond: function() {
+				app.characters.robertMorris.keyExchangeIndex = 1;
+				render();
+			}
+		}]
+	}),
+
+	// 1
+	new Exchange({
+		msg: "<p>Now's not a good time. My character hasn't really been created yet. Raincheck?</p>",
+	
+		responses: [{
+			button: "Ok, goodbye then.",
+			respond: function() {
+				app.characters.robertMorris.keyExchangeIndex = 1;
+				app.carroll.moveTo([0, 2]);
+				render();
+			}
+		}]
+	})	
+];
+
+// APOTHECARY'S EXCHANGES
+app.characters.apothecary.exchanges = [
+
+    // 0
+	new Exchange({
+		msg: "<p>Hello there, Sir, and welcome. I am the apothecary.</p>",
+	
+		responses: [{
+			button: "Hi there. What do you have for sale?",
+			respond: function() {
+				app.characters.apothecary.keyExchangeIndex = 1;
+				render();
+			}
+		}]
+	}),
+
+	// 1
+	new Exchange({
+		msg: "<p>Now's not a good time. My character hasn't really been created yet. Raincheck?</p>",
+	
+		responses: [{
+			button: "Ok, goodbye then.",
+			respond: function() {
+				app.characters.apothecary.keyExchangeIndex = 1;
+				app.carroll.moveTo([0, 2]);
+				render();
+			}
+		}]
+	})	
+];
+
+// TORY'S EXCHANGES
+app.characters.tory.exchanges = [
+
+    // 0
+	new Exchange({
+		msg: "<p>This land will soon return to the Crown, and the traitors\
+			  will be defeated. Are you with us, brother?</p>",
+	
+		responses: [{
+			button: "No, leave me alone.",
+			respond: function() {
+				app.characters.tory.keyExchangeIndex = 1;
+				render();
+			}
+		}]
+	}),
+
+	// 1
+	new Exchange({
+		msg: "<p>You rebel scum. God save the King!</p>",
+	
+		responses: [{
+			button: "ATTACK!",
+			respond: function() {
+				melee(app.characters.tory);
+				render();
+			}
+		}, {
+			button: "RETREAT!",
+			respond: function() {
+				console.log("Retreat");
+				retreat(app.character.tory);
+				render();
+			}
+		}]
+	})	
+];

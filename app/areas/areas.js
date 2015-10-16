@@ -43,7 +43,7 @@ var Area = function(options) {
 
 Area.prototype.isRandomInteraction = function() {
 	var testRandom = Math.floor(Math.random()*8);
-	if (testRandom <= 5) {
+	if (testRandom <= 8) {
 		return false;
 	}
 	else {
@@ -89,8 +89,8 @@ app.areas = [
 			"bostonharbor/assets/area1-4.jpg"
 		],
 		map: [ 
-			[null, app.characters.constable, null],
-			[null, null, null],
+			[app.characters.wharfRat, app.characters.constable, null],
+			[null, app.characters.wharfRat, app.characters.fisherman],
 			[null, null, app.characters.pirate]
 		],
 		startLocation: [2, 2],
@@ -126,9 +126,9 @@ app.areas = [
 		],
 		map: [ 
 			[null, app.characters.robertMorris, null, app.characters.apothecary],
-			[null, app.characters.barkeep, null, null],
-			[null, null, null, null],
-			[app.characters.guard, null, app.characters.colrochester, null]
+			[app.characters.cutthroat, app.characters.barkeep, app.characters.tavernwench, null],
+			[null, app.characters.tavernwench, null, null],
+			[app.characters.guard, app.characters.cutthroat, app.characters.colrochester, null]
 		],
 		startLocation: [3, 2],
 		randomChars: [
@@ -201,7 +201,7 @@ app.areas = [
 		],
 		map: [ 
 				[null, app.characters.fitzhugh, null],
-				[null, app.characters.williamson, null],
+				[app.characters.tory, app.characters.williamson, null],
 				[null, null, null]
 		],
 		startLocation: [1, 1],

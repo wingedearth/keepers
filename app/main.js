@@ -193,25 +193,29 @@ var render = function() {
 
     // E. Insert exchange text
     $('#textbox').html("");
-    if ( app.carroll.isKeyLocation() ) {
-    	$('#textbox').html(character.exchanges[character.keyExchangeIndex].msg);
-    }
-    else if ( character == app.carroll.area.defaultNPC ) {
-    	// random default exchange for area
-    	fight = 0;
-    	var charsLength = app.carroll.area.defaultMessage.length;
-    	var randomIndex = Math.floor(Math.random()*charsLength);
-    	$('#textbox').html(app.carroll.area.defaultMessage[randomIndex]);
-    }
-    else {    
-    	// random char dialogue
-    	$('#textbox').text("A random character has approached you.\n")
-    	$('#textbox').append(character.exchanges[character.keyExchangeIndex].msg);
-    }
     if (fight==1)
 		{
 			$('#textbox').append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
+			$('#textbox').text("A random character has approached you.\n")
+	    	$('#textbox').append(character.exchanges[character.keyExchangeIndex].msg);
 		}
+	else {
+	    if ( isKey ) {
+	    	$('#textbox').html(character.exchanges[character.keyExchangeIndex].msg);
+	    }
+	    else if ( character == app.carroll.area.defaultNPC ) {
+	    	// random default exchange for area
+	    	fight = 0;
+	    	var charsLength = app.carroll.area.defaultMessage.length;
+	    	var randomIndex = Math.floor(Math.random()*charsLength);
+	    	$('#textbox').html(app.carroll.area.defaultMessage[randomIndex]);
+	    }
+	    else {    
+	    	// random char dialogue
+	    	$('#textbox').text("A random character has approached you.\n")
+	    	$('#textbox').append(character.exchanges[0].msg);
+	    }
+    }
 };
 
 // LOAD GAME DATA & ASSETS
