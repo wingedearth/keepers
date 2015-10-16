@@ -411,9 +411,9 @@ app.characters.colrochester.exchanges = [
 	// 1
 	new Exchange({
 		msg: "<p>Good morning, Charles. You are finally awake. \
-		     <br>I'm afraid our ship from Maryland was attacked by pirates.\
-		     <br>You took a nasty hit to the head, but I see no sign of \
-		     permanent damage. <br>Do you remember where you are?</p>",
+		     I'm afraid our ship from Maryland was attacked by pirates. \
+		     You took a nasty hit to the head, but I see no sign of \
+		     permanent damage. Do you remember where you are?</p>",
 		
 		responses: [{
 			button: "I do not remember.",

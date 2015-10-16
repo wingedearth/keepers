@@ -38,7 +38,7 @@ body {
 #placebox {
 	position: absolute;
 	top: 290px; left: 10px;
-	width: 330px; height: 225px;
+	width: 340px; height: 225px;
 	background-color: cornsilk;
 	background-size: cover;
 	border-radius: 10px;
@@ -47,7 +47,7 @@ body {
 
 #photobox {
 	position: absolute;
-	top: 60px; left: 365px;
+	top: 60px; left: 375px;
 	width: 225px; height: 210px;
 	background-color: cornsilk;
 	background-size: cover;
@@ -57,7 +57,7 @@ body {
 
 #locationbox {
 	position: absolute;
-	top: 10px; left: 365px;
+	top: 10px; left: 375px;
 	width: 225px; height: 30px;
 	background-color: cornsilk;
 	border-radius: 10px;
@@ -68,7 +68,7 @@ body {
 #textbox {
 	position: absolute;
 	top: 10px; left: 10px;
-	width: 320px; height: 250px;
+	width: 330px; height: 250px;
 	background-color: cornsilk;
 	border-radius: 10px;
 	border: 5px solid darkred;	
@@ -78,7 +78,7 @@ body {
 
 #actionbox {
 	position: absolute;
-	top: 290px; left: 365px;
+	top: 290px; left: 375px;
 	width: 225px; height: 225px;
 	background-color: cornsilk;
 	border-radius: 10px;
