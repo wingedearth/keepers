@@ -70,7 +70,7 @@ app.areas = [
 	new Area({
 		id:     0,
 		name:   "Welcome",
-		images: ["app/areas/welcome/assets/area0.jpg"],
+		images: ["http://wingedearth.github.io/keepers/app/areas/welcome/assets/area0.jpg"],
 		map:    [ 
 			[app.characters.colrochester]
 		],
