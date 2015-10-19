@@ -115,7 +115,8 @@ var render = function() {
     character = app.carroll.currentCharacter();
     app.carroll.isKeyLocation();
     $('#photobox').css('background-image', 'url("' + character.image + '")');
-  
+  	$('#photobox').fadeIn(3000);
+  	//$( "#photobox" ).effect( "shake" );
 
     // X. Display character's name
     $('#namebox .container').text(character.name);

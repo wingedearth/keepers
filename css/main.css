@@ -18,7 +18,6 @@
 
 body {
 	background-color: goldenrod;
-	
 	background-repeat: no-repeat;
 	color: purple;
 	font-family: 'Cabin', serif;
@@ -30,8 +29,31 @@ body {
 	}
 }
 
-#maintitle {
+.box {
+	background-color: cornsilk;
+	background-size: cover;
+	border-radius: 10px;
+	border: 2px solid darkred;
 	font-weight: bold;
+}
+
+#jumbo {
+	position: absolute;
+	margin: auto;
+	top: 5%;
+	left: 15%;
+	width: 80%;
+}
+
+.halfscreen {
+	position: absolute;
+	border: 1px solid black;
+	float: center;
+	margin: auto;
+	display: inline-block;
+}
+
+#maintitle {
 	font-size: 25px;
 }
 
@@ -39,40 +61,24 @@ body {
 	position: absolute;
 	top: 290px; left: 10px;
 	width: 340px; height: 260px;
-	background-color: cornsilk;
-	background-size: cover;
-	border-radius: 10px;
-	border: 5px solid darkred;
 }
 
 #photobox {
 	position: absolute;
 	top: 60px; left: 375px;
 	width: 225px; height: 210px;
-	background-color: cornsilk;
-	background-size: cover;
-	border-radius: 10px;
-	border: 5px solid darkred;
 }
 
 #locationbox {
 	position: absolute;
 	top: 10px; left: 375px;
 	width: 225px; height: 30px;
-	background-color: cornsilk;
-	border-radius: 10px;
-	border: 5px solid darkred;
-	font-weight: bold;
 }
 
 #namebox {
 	position: absolute;
 	top: 290px; left: 375px;
 	width: 225px; height: 25px;
-	background-color: cornsilk;
-	border-radius: 10px;
-	border: 5px solid darkred;
-	font-weight: bold;
 	font-size: 12px;
 }
 
@@ -80,9 +86,6 @@ body {
 	position: absolute;
 	top: 10px; left: 10px;
 	width: 330px; height: 250px;
-	background-color: cornsilk;
-	border-radius: 10px;
-	border: 5px solid darkred;	
 	padding: 5px 5px 5px 5px;
 	font-size: 14px; font-weight: bold;
 }
@@ -91,9 +94,6 @@ body {
 	position: absolute;
 	top: 330px; left: 375px;
 	width: 225px; height: 220px;
-	background-color: cornsilk;
-	border-radius: 10px;
-	border: 5px solid darkred;
 	font-size: 12px; font-weight: bold;
 }
 
