@@ -137,55 +137,8 @@ var render = function() {
 	    });
     } else if ( character == app.carroll.area.defaultNPC ) {
     	// show movement buttons
-    	if (coordY < (app.carroll.area.map.length - 1)) {
-    		$response.append($nbtn);
-    			$nbtn.on('click', function() {
-    				var newY = ((app.carroll.location[0])-1);
-    				var newX = (app.carroll.location[1]);
-		    		app.carroll.moveTo([newY, newX]); //move north;
-		    		render();
-		    	});
-    	}
-    	if (coordX > 0) {
-    		$response.append($wbtn);
-    			$wbtn.on('click', function() {
-    				var newY = (app.carroll.location[0]);
-    				var newX = ((app.carroll.location[1])-1);
-		    		app.carroll.moveTo([newY, newX]); //move west;
-		    		render();
-		    	});
-    	}
-    	if (coordX < (app.carroll.area.map[0].length-1)) {
-    		$response.append($ebtn);
-    		$ebtn.on('click', function() {
-    				var newY = (app.carroll.location[0]);
-    				var newX = ((app.carroll.location[1])+1);
-		    		app.carroll.moveTo([newY, newX]); //move east;
-		    		render();
-		    	});
-    	}
-
-    	if (coordY > 0) {
-    		$response.append($sbtn);
-    		$sbtn.on('click', function() {
-    				var newY = ((app.carroll.location[0])+1);
-    				var newX = (app.carroll.location[1]);
-		    		app.carroll.moveTo([newY, newX]); //move south;
-		    		render();
-		    	});
-    	}
-
-    } else {
-	    // response buttons for random char
-	    console.log("character: " + character);
-	    character.exchanges[character.keyExchangeIndex].responses.forEach(function(response) {
-		    	var $btn = $('<li>', {text: response.button, class: "clickable"});
-		    	$response.append($btn);
-		    	$btn.on('click', function() {
-		    		response.respond();
-	    		});
-	    });
-	}
+    	showMovement(coordY, coordX);
+    }
 
 
     // D. Draw area image
@@ -201,9 +154,9 @@ var render = function() {
 		{
 			$text.append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
 			$text.text("A random character has approached you.\n")
-	    	$text.append(character.exchanges[character.keyExchangeIndex].msg);
+	    $text.append(character.exchanges[character.keyExchangeIndex].msg);
 		}
-	else {
+	  else {
 	    if ( isKey ) {
 	    	$text.css('display', 'none').fadeIn(1500).html(character.exchanges[character.keyExchangeIndex].msg);
 	    }
@@ -220,7 +173,51 @@ var render = function() {
 	    	$text.append(character.exchanges[0].msg);
 	    }
     }
-};
+}; //end of render
+
+
+// SHOW MOVEMENT BUTTONS
+function showMovement(coordY, coordX) {
+  if (coordY < (app.carroll.area.map.length - 1)) {
+    $('#actionlist').append($nbtn);
+    $nbtn.on('click', function() {
+      var newY = ((app.carroll.location[0])-1);
+      var newX = (app.carroll.location[1]);
+      app.carroll.moveTo([newY, newX]); //move north;
+      render();
+    });
+  }
+  if (coordX > 0) {
+    $('#actionlist').append($wbtn);
+    $wbtn.on('click', function() {
+      var newY = (app.carroll.location[0]);
+      var newX = ((app.carroll.location[1])-1);
+      app.carroll.moveTo([newY, newX]); //move west;
+      render();
+    });
+  }
+  if (coordX < (app.carroll.area.map[0].length-1)) {
+    $('#actionlist').append($ebtn);
+    $ebtn.on('click', function() {
+      var newY = (app.carroll.location[0]);
+      var newX = ((app.carroll.location[1])+1);
+      app.carroll.moveTo([newY, newX]); //move east;
+      render();
+    });
+  }
+
+  if (coordY > 0) {
+    $('#actionlist').append($sbtn);
+    $sbtn.on('click', function() {
+      var newY = ((app.carroll.location[0])+1);
+      var newX = (app.carroll.location[1]);
+      app.carroll.moveTo([newY, newX]); //move south;
+      render();
+    });
+  }
+} //end of showMovement
+
+
 
 // LOAD GAME DATA & ASSETS
 $(document).ready(function() {

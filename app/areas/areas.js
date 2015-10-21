@@ -1,7 +1,7 @@
-console.log('app/areas/areas.js loaded...');
+console.log('app/areas/areas.js has landed in physicality from the astral plane...');
 
-/* 
- * Area - the area is a "region" for the character 
+/*
+ * Area - the area is a "region" for the character
  *   to explore. It has a default NPC to talk to,
  *   and a set of random characters (usually
  *   monsters) that appear as you explore. The
@@ -9,7 +9,7 @@ console.log('app/areas/areas.js loaded...');
  *   y-coordinate system.
  *
  * Example usage:
- * 
+ *
  * var la = new Area({
  *   id: 90027,
  *   name: "Los Angeles",
@@ -22,12 +22,12 @@ var Area = function(options) {
 	this.id     = options.id;
 	this.name   = options.name;
 	this.images = options.images;
-	
+
 	// list of Locations
 	this.map = options.map;
-	
+
 	// list of Characters, usually monsters
-	this.randomChars = (options.randomChars || []); 
+	this.randomChars = (options.randomChars || []);
 
 	// a Character
 	this.defaultNPC = options.defaultNPC;
@@ -65,13 +65,13 @@ Area.prototype.getRandomImage = function() {
 
 
 app.areas = [
-	
+
 	// Welcome
 	new Area({
 		id:     0,
 		name:   "Welcome",
 		images: ["welcome/assets/area0.jpg"],
-		map:    [ 
+		map:    [
 			[app.characters.colrochester]
 		],
 		startLocation: [0, 0],
@@ -88,7 +88,7 @@ app.areas = [
 			"bostonharbor/assets/area1-3.jpg",
 			"bostonharbor/assets/area1-4.jpg"
 		],
-		map: [ 
+		map: [
 			[app.characters.wharfRat, app.characters.constable, null],
 			[null, app.characters.wharfRat, app.characters.fisherman],
 			[null, null, app.characters.pirate]
@@ -124,7 +124,7 @@ app.areas = [
 			"bostontown/assets/area2-2.jpg",
 			"bostontown/assets/area2-3.jpg"
 		],
-		map: [ 
+		map: [
 			[null, app.characters.robertMorris, null, app.characters.apothecary],
 			[app.characters.cutthroat, app.characters.barkeep, app.characters.tavernwench, null],
 			[null, app.characters.tavernwench, null, null],
@@ -160,7 +160,7 @@ app.areas = [
 			"massachusetts/assets/area3-4.jpg",
 			"massachusetts/assets/area3-5.jpg"
 		],
-		map: [ 
+		map: [
 				[null, null, null, null, null],
 				[null, app.characters.traveler, null, null, null],
 				[null, null, null, null, app.characters.cecil],
@@ -181,7 +181,7 @@ app.areas = [
 			"mohawktrail/assets/area4-1.jpg",
 			"mohawktrail/assets/area4-2.jpg"
 		],
-		map: [ 
+		map: [
 				[null, null, null, null, null, null, null, null, null , app.characters.cecil],
 				[null, app.characters.williamson, null, null, null, null, null, null, null, null]
 		],
@@ -199,7 +199,7 @@ app.areas = [
 		images: [
 			"bath/assets/area5-1.jpg",
 		],
-		map: [ 
+		map: [
 				[null, app.characters.fitzhugh, null],
 				[app.characters.tory, app.characters.williamson, null],
 				[null, null, null]
