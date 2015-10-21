@@ -16,7 +16,7 @@ var Character = function(options) {
 };
 
 app.characters = {
-	
+
 	// Col. Nathanial Rochester
 	colrochester: new Character({
 		health:     100000,
@@ -152,7 +152,7 @@ app.characters = {
 		strength:   100,
 		defense:    100,
 		image:      "app/characters/assets/barkeep.jpg",
-		keyImage: 	"app/characters/assets/greendragon.jpg", 
+		keyImage: 	"app/characters/assets/greendragon.jpg",
 		items:      ["Harpoon IPA", "Sam Adams"],
 		keyExchangeIndex: 0
 	}),
@@ -166,7 +166,7 @@ app.characters = {
 		strength:   100,
 		defense:    100,
 		image:      "app/characters/assets/apothecary.jpg",
-		keyImage: 	"app/characters/assets/apothecarystore.jpg", 
+		keyImage: 	"app/characters/assets/apothecarystore.jpg",
 		items:      ["healing potion", "curse"],
 		keyExchangeIndex: 0
 	}),
@@ -313,7 +313,6 @@ Exchange.prototype.action = function() {
 }
 
 var isKey;
-var fight = 0;
 
 
 
@@ -336,12 +335,12 @@ function melee(enemy) {
 	} else {
 		$('#textbox').append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
 		alert(enemy.name + " is dead!");
-		
+
 		loot(enemy);
 		enemy.keyExchangeIndex = 0;
 		enemy.health = enemy.fullhealth;
 		(app.carroll.area.map[app.carroll.location[0]][app.carroll.location[1]]) = null;
-		fight = 0;
+		app.carroll.fight = 0;
 	}
 }
 
@@ -358,7 +357,7 @@ function retreat(enemy) {
 		enemy.keyExchangeIndex = 0;
 		enemy.health = enemy.fullHealth;
 		(app.carroll.area.map[app.carroll.location[0]][app.carroll.location[1]]) = null;
-		fight = 0;
+		app.carroll.fight = 0;
 	}
 }
 
@@ -393,7 +392,7 @@ app.characters.colrochester.exchanges = [
 		     <br><br>a game of honor and magic<br>in the historic    \
 		     American Northeast<br><br>&copy; 2015 Andrew A. Anissi  \
 		     </center></p>',
-		
+
 		responses: [{
 			button: "Start",
 			respond: function() {
@@ -414,12 +413,12 @@ app.characters.colrochester.exchanges = [
 		     I'm afraid our ship from Maryland was attacked by pirates. \
 		     You took a nasty hit to the head, but I see no sign of \
 		     permanent damage. Do you remember where you are?</p>",
-		
+
 		responses: [{
 			button: "I do not remember.",
 			respond: function() {
 				app.characters.colrochester.keyExchangeIndex = 2;
-				render();	
+				render();
 			}
 		}, {
 			button: "Who are you?",
@@ -439,7 +438,7 @@ app.characters.colrochester.exchanges = [
 		but you lack the funds to sustain it. Mr. Morris is the \
 		richest man in America in 1791 and can provide the financing you need\
 		to get your house in order.<br>Are you ready to disembark?</p>",
-		
+
 		responses: [{
 			button: "I am ready, Sir.",
 			respond: function() {
@@ -466,7 +465,7 @@ app.characters.colrochester.exchanges = [
 	new Exchange({
 		msg: "<p>I am here to help you, Major Carroll. I ask you again, \
 			 are you ready to leave this ship and enter Boston Town?</p>",
-		
+
 		responses: [{
 			button: "I am ready, Sir.",
 			respond: function() {
@@ -489,7 +488,7 @@ app.characters.colrochester.exchanges = [
 	new Exchange({
 		msg: "<p>Let's be on our way then...<br>Oh no, look out! They're back!"
 		+ " It's a pirate!</p>",
-		
+
 		responses: [{
 			button: "I am not afraid.",
 			respond: function() {
@@ -516,7 +515,7 @@ app.characters.colrochester.exchanges = [
 			 I only wish I could have helped you in this fight, but...\
 			 well...I suppose you have been polite enough not to\
 			 mention my aged appearance.</p>",
-		
+
 		responses: [{
 			button: "What are you talking about?",
 			respond: function() {
@@ -542,14 +541,14 @@ app.characters.colrochester.exchanges = [
 			 He is an important man, just named by the President to be\
 			 the first Superintendent of Finance of the United States!\
 			 You will find Mr. Morris at the Governor's Mansion.</p>",
-		
+
 		responses: [{
 			button: "Thank you Colonel. Let's be on our way.",
 			respond: function() {
 				app.characters.colrochester.keyExchangeIndex = 6;
 				app.carroll.area.map[3][2] = null;
 				app.carroll.moveTo([2, 2]);
-				fight = 0;
+				app.carroll.fight = 0;
 				render();
 			}
 		},  {
@@ -557,7 +556,7 @@ app.characters.colrochester.exchanges = [
 			respond: function() {
 				app.characters.colrochester.keyExchangeIndex = 6;
 				app.carroll.area.map[3][2] = null;
-				fight = 0;
+				app.carroll.fight = 0;
 				render();
 			}
 		}]
@@ -572,7 +571,7 @@ app.characters.colrochester.exchanges = [
 			 is still in Maryland. He will live many years, and then he \
 			 will leave Time, and then he will be me. As a spirt Out of\
 			 Time...yes a ghost if you will. I have come to help you now.</p>",
-		
+
 		responses: [{
 			button: "You're...a ghost?",
 			respond: function() {
@@ -603,7 +602,7 @@ app.characters.colrochester.exchanges = [
 			 appear in any form. I have come to you now because your\
 			 quest is far more important that you know. There is\
 			 much I cannot reveal to you now, but I will help to guide you.</p>",
-		
+
 		responses: [{
 			button: "Thank you, Colonel.",
 			respond: function() {
@@ -630,22 +629,22 @@ app.characters.pirate.exchanges = [
 	new Exchange({
 		msg: "<p>Ahoy, matey! You survived our attack! But \
 	  	 not for long!</p>",
-	
+
 		responses: [{
 			button: "FIGHT!",
 			respond: function() {
 				app.characters.pirate.keyExchangeIndex = 1;
-				fight = 1;
+				app.carroll.fight = 1;
 				render();
 			}
-		},	
+		},
 		]
 	}),
 
 	// 1
 	new Exchange({
 		msg: "<p>Avast! We don't parlay, we kill!</p>",
-	
+
 		responses: [{
 			button: "ATTACK!",
 			respond: function() {
@@ -654,7 +653,7 @@ app.characters.pirate.exchanges = [
 
 				render();
 			}
-		},	
+		},
 		{
 			button: "RETREAT!",
 			respond: function() {
@@ -671,14 +670,14 @@ app.characters.pirate.exchanges = [
 			 from Mary Land! Off to call the constable on us, are ye?\
 			 Ye scallywag won't make it two planks before I cleave\
 			 ye to the brisket and send ye down to Davy Jones' Locker.</p>",
-	
+
 		responses: [{
 			button: "Have we met?",
 			respond: function() {
 				app.characters.pirate.keyExchangeIndex = 3;
 				render();
 			}
-		},	
+		},
 		{
 			button: "Die, pirate scum!",
 			respond: function() {
@@ -702,14 +701,14 @@ app.characters.pirate.exchanges = [
 			 you upside the head, I did. No matter, you'll be\
 			 be feedin' the fish before you can say,\
 			 yo ho ho!</p>",
-	
+
 		responses: [{
 			button: "No one talks to me like that.",
 			respond: function() {
 				app.characters.pirate.keyExchangeIndex = 4;
 				render();
 			}
-		},	
+		},
 		{
 			button: "I'm a lover not a fighter. No wait, I'm a fighter.",
 			respond: function() {
@@ -722,20 +721,20 @@ app.characters.pirate.exchanges = [
 		// 4
 	new Exchange({
 		msg: "<p>Avast, dog!</p>",
-	
+
 		responses: [{
 			button: "ATTACK!",
 			respond: function() {
 				app.characters.pirate.keyExchangeIndex = 4;
 				melee(app.characters.pirate);
-				if (fight == 0) {
+				if (app.carroll.fight == 0) {
 					app.characters.colrochester.keyExchangeIndex = 5;
 					app.carroll.area.map[2][2] = app.characters.colrochester;
 				}
 				render();
 			}
 		}]
-	})	
+	})
 ];
 
 // WHARF RAT'S EXCHANGES
@@ -744,13 +743,13 @@ app.characters.wharfRat.exchanges = [
     // 0
 	new Exchange({
 		msg: "<p>EEK! EEK! HISS! KILL!</p>",
-	
+
 		responses: [{
 			button: "FIGHT!",
 			respond: function() {
 				console.log("fight");
 				app.characters.wharfRat.keyExchangeIndex = 1;
-				fight = 1;
+				app.carroll.fight = 1;
 				render();
 			}
 		}]
@@ -759,7 +758,7 @@ app.characters.wharfRat.exchanges = [
 	// 1
 	new Exchange({
 		msg: "<p>EEK! EEK! HISSSSSSSSSS!</p>",
-	
+
 		responses: [{
 			button: "ATTACK!",
 			respond: function() {
@@ -777,7 +776,7 @@ app.characters.wharfRat.exchanges = [
 				render();
 			}
 		}]
-	})	
+	})
 ];
 
 // DRUNKEN FISHERMAN INTERACTIONS
@@ -786,7 +785,7 @@ app.characters.fisherman.exchanges = [
     // 0
 	new Exchange({
 		msg: "<p>I know what you did last summer!</p>",
-	
+
 		responses: [{
 			button: "FIGHT!",
 			respond: function() {
@@ -800,7 +799,7 @@ app.characters.fisherman.exchanges = [
 	// 1
 	new Exchange({
 		msg: "<p>Wicked Pissah!</p>",
-	
+
 		responses: [{
 			button: "ATTACK!",
 			respond: function() {
@@ -818,7 +817,7 @@ app.characters.fisherman.exchanges = [
 				render();
 			}
 		}]
-	})	
+	})
 ];
 
 // CONSTABLE INTERACTIONS
@@ -827,7 +826,7 @@ app.characters.constable.exchanges = [
     // 0
 	new Exchange({
 		msg: "<p>Good day to you, sir. I am Constable Barney.</p>",
-	
+
 		responses: [{
 			button: "Good day, Constable.",
 			respond: function() {
@@ -849,7 +848,7 @@ app.characters.constable.exchanges = [
 	// 1
 	new Exchange({
 		msg: "Right this way to Boston Town.",
-	
+
 		responses: [{
 			button: "I am much obliged to you, Constable.",
 			respond: function() {
@@ -867,7 +866,7 @@ app.characters.constable.exchanges = [
 				render();
 			}
 		}]
-	})	
+	})
 ];
 
 // TAVERN WENCH'S EXCHANGES
@@ -877,7 +876,7 @@ app.characters.tavernwench.exchanges = [
 	new Exchange({
 		msg: "<p>'Ello, dearie! Would you spare some coin? I spent\
 			 all my silver at a local tavern called Cheers.'</p>",
-	
+
 		responses: [{
 			button: "No, leave me alone.",
 			respond: function() {
@@ -890,7 +889,7 @@ app.characters.tavernwench.exchanges = [
 	// 1
 	new Exchange({
 		msg: "<p>I'll make you regret your lack of charity!</p>",
-	
+
 		responses: [{
 			button: "ATTACK!",
 			respond: function() {
@@ -905,7 +904,7 @@ app.characters.tavernwench.exchanges = [
 				render();
 			}
 		}]
-	})	
+	})
 ];
 
 // CUT THROAT'S EXCHANGES
@@ -914,7 +913,7 @@ app.characters.cutthroat.exchanges = [
     // 0
 	new Exchange({
 		msg: "<p>Would you care for a cut, governah? Your throat perhaps?</p>",
-	
+
 		responses: [{
 			button: "No, leave me alone.",
 			respond: function() {
@@ -927,7 +926,7 @@ app.characters.cutthroat.exchanges = [
 	// 1
 	new Exchange({
 		msg: "<p>Too bad! I'll cut it anyway!</p>",
-	
+
 		responses: [{
 			button: "ATTACK!",
 			respond: function() {
@@ -944,7 +943,7 @@ app.characters.cutthroat.exchanges = [
 				render();
 			}
 		}]
-	})	
+	})
 ];
 
 // BARKEEP'S EXCHANGES
@@ -953,7 +952,7 @@ app.characters.barkeep.exchanges = [
     // 0
 	new Exchange({
 		msg: "<p>Good day to you, Sir. The bar's closed now, I'm afraid.</p>",
-	
+
 		responses: [{
 			button: "Why is the bar closed?",
 			respond: function() {
@@ -968,7 +967,7 @@ app.characters.barkeep.exchanges = [
 		msg: "<p>My character hasn't really been set up yet. Sorry\
 			  about that, chief. You'd think someone would set up Sam Malone\
 			  before Diane.</p>",
-	
+
 		responses: [{
 			button: "Goodbye then.",
 			respond: function() {
@@ -977,7 +976,7 @@ app.characters.barkeep.exchanges = [
 				render();
 			}
 		}]
-	})	
+	})
 ];
 
 // ROBERT MORRIS' EXCHANGES
@@ -987,7 +986,7 @@ app.characters.robertMorris.exchanges = [
 	new Exchange({
 		msg: "<p>Welcome, Mr. Carroll. I say welcome, because the Governor \
 		has made me feel so at home here in his mansion. Wait...</p>",
-	
+
 		responses: [{
 			button: "What's wrong?",
 			respond: function() {
@@ -1000,7 +999,7 @@ app.characters.robertMorris.exchanges = [
 	// 1
 	new Exchange({
 		msg: "<p>Now's not a good time. My character hasn't really been created yet. Raincheck?</p>",
-	
+
 		responses: [{
 			button: "Ok, goodbye then.",
 			respond: function() {
@@ -1009,7 +1008,7 @@ app.characters.robertMorris.exchanges = [
 				render();
 			}
 		}]
-	})	
+	})
 ];
 
 // APOTHECARY'S EXCHANGES
@@ -1018,7 +1017,7 @@ app.characters.apothecary.exchanges = [
     // 0
 	new Exchange({
 		msg: "<p>Hello there, Sir, and welcome. I am the apothecary.</p>",
-	
+
 		responses: [{
 			button: "Hi there. What do you have for sale?",
 			respond: function() {
@@ -1031,7 +1030,7 @@ app.characters.apothecary.exchanges = [
 	// 1
 	new Exchange({
 		msg: "<p>Now's not a good time. My character hasn't really been created yet. Raincheck?</p>",
-	
+
 		responses: [{
 			button: "Ok, goodbye then.",
 			respond: function() {
@@ -1040,7 +1039,7 @@ app.characters.apothecary.exchanges = [
 				render();
 			}
 		}]
-	})	
+	})
 ];
 
 // TORY'S EXCHANGES
@@ -1050,7 +1049,7 @@ app.characters.tory.exchanges = [
 	new Exchange({
 		msg: "<p>This land will soon return to the Crown, and the traitors\
 			  will be defeated. Are you with us, brother?</p>",
-	
+
 		responses: [{
 			button: "No, leave me alone.",
 			respond: function() {
@@ -1063,7 +1062,7 @@ app.characters.tory.exchanges = [
 	// 1
 	new Exchange({
 		msg: "<p>You rebel scum. God save the King!</p>",
-	
+
 		responses: [{
 			button: "ATTACK!",
 			respond: function() {
@@ -1078,5 +1077,5 @@ app.characters.tory.exchanges = [
 				render();
 			}
 		}]
-	})	
+	})
 ];
