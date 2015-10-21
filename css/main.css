@@ -18,7 +18,7 @@
 
 body {
 	background-color: goldenrod;
-	background-image: url('app/areas/welcome/assets/forest3.jpg');
+	background-image: url('/app/areas/welcome/assets/forest3.jpg');
 	background-size: cover;
 	color: purple;
 	font-family: 'Cabin', serif;
