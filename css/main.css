@@ -61,14 +61,30 @@ body {
 
 #placebox {
 	position: absolute;
-	top: 290px; left: 10px;
-	width: 340px; height: 260px;
+	top: 0px; left: 5px;
+	width: 590px; height: 320px;
+}
+
+#locationbox {
+	position: absolute;
+	top: 10px; left: 5px;
+	color: white;
+	width: 225px; height: 30px;
+}
+
+
+#textbox {
+	position: absolute;
+	top: 330px; left: 5px;
+	width: 330px; height: 200px;
+	padding: 5px 5px 5px 5px;
+	font-size: 14px; font-weight: bold;
 }
 
 #photobox {
 	position: absolute;
-	top: 60px; left: 375px;
-	width: 225px; height: 210px;
+	top: 10px; left: 375px;
+	width: 200px; height: 200px;
 }
 
 #namelabel {
@@ -82,11 +98,6 @@ body {
 	text-align: center;
 }
 
-#locationbox {
-	position: absolute;
-	top: 10px; left: 375px;
-	width: 225px; height: 30px;
-}
 
 #namebox {
 	position: absolute;
@@ -95,18 +106,11 @@ body {
 	font-size: 12px;
 }
 
-#textbox {
-	position: absolute;
-	top: 10px; left: 10px;
-	width: 330px; height: 250px;
-	padding: 5px 5px 5px 5px;
-	font-size: 14px; font-weight: bold;
-}
 
 #actionbox {
 	position: absolute;
-	top: 290px; left: 375px;
-	width: 225px; height: 260px;
+	top: 330px; left: 375px;
+	width: 225px; height: 210px;
 	font-size: 12px; font-weight: bold;
 }
 
