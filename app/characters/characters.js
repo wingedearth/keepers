@@ -213,6 +213,49 @@ app.characters = {
 		keyExchangeIndex: 0
 	}),
 
+	// Seneca Scout
+	senecascout: new Character({
+		health:     350,
+		name: 		"Seneca Scout",
+		isHostile:  true,
+		isMerchant: false,
+		strength:   250,
+		defense:    250,
+		image:      "app/characters/assets/senecascout.jpg",
+		keyImage: 	null,
+		items:      [],
+		keyExchangeIndex: 0
+	}),
+
+	// Seneca Warrior
+	senecascout: new Character({
+		health:     350,
+		name: 		"Seneca Warrior",
+		isHostile:  true,
+		isMerchant: false,
+		strength:   250,
+		defense:    250,
+		image:      "app/characters/assets/senecawarrior.jpg",
+		keyImage: 	null,
+		items:      [],
+		keyExchangeIndex: 0
+	}),
+
+	// Seneca Shaman
+	senecascout: new Character({
+		health:     350,
+		name: 		"Seneca Warrior",
+		isHostile:  true,
+		isMerchant: false,
+		strength:   250,
+		defense:    250,
+		image:      "app/characters/assets/senecashaman.jpg",
+		keyImage: 	null,
+		items:      [],
+		keyExchangeIndex: 0
+	}),
+
+
 	// Williamson
 	williamson: new Character({
 		health:     5000,
@@ -255,7 +298,35 @@ app.characters = {
 		keyExchangeIndex: 0
 	}),
 
-	// The Universal Friend
+	// Female Friend
+	friend1: new Character({
+		health:     500,
+		name: 		"A Friend",
+		isHostile:  false,
+		isMerchant: false,
+		strength:   200,
+		defense:    200,
+		image:      "app/characters/assets/friend1.jpg",
+		keyImage: 	null,
+		items:      [],
+		keyExchangeIndex: 0
+	}),
+
+	// Couple of Universal Friends
+	friends: new Character({
+		health:     500,
+		name: 		"Society of Universal Friends",
+		isHostile:  false,
+		isMerchant: false,
+		strength:   250,
+		defense:    250,
+		image:      "app/characters/assets/friends.jpg",
+		keyImage: 	null,
+		items:      [],
+		keyExchangeIndex: 0
+	}),
+
+	// The Publick Universal Friend
 	ufriend: new Character({
 		health:     5000,
 		name: 		"The Universal Friend",
@@ -264,7 +335,7 @@ app.characters = {
 		strength:   600,
 		defense:    600,
 		image:      "app/characters/assets/ufriend.jpg",
-		keyImage: 	null,
+		keyImage: 	"app/areas/newjerusalem/assets/friendhouse.jpg",
 		items:      [],
 		keyExchangeIndex: 0
 	}),
@@ -283,6 +354,20 @@ app.characters = {
 		keyExchangeIndex: 0
 	}),
 
+	// The Genesee Fever
+	fever: new Character({
+		health:     1000000,
+		name: 		"Genesee Fever",
+		isHostile:  false,
+		isMerchant: false,
+		strength:   1000000,
+		defense:    1000000,
+		image:      "app/characters/assets/fever.jpg",
+		keyImage: 	null,
+		items:      [],
+		keyExchangeIndex: 0
+	}),
+
 	// Splitfoot
 	splitfoot: new Character({
 		health:     1000000,
@@ -295,7 +380,22 @@ app.characters = {
 		keyImage: 	null,
 		items:      [],
 		keyExchangeIndex: 0
+	}),
+
+	// Genushio
+	genushio: new Character({
+		health:     1000000,
+		name: 		"Genushio",
+		isHostile:  false,
+		isMerchant: false,
+		strength:   1000000,
+		defense:    1000000,
+		image:      "app/characters/assets/genushio.jpg",
+		keyImage: 	null,
+		items:      [],
+		keyExchangeIndex: 0
 	})
+
 };
 
 

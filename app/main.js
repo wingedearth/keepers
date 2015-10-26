@@ -12,7 +12,7 @@ var character;
 app.carroll = {
 	name:     "Maj. Charles Carroll",
 	area:     null,
-	location: null,
+	location: [0, 0],
 	health:   600,
   fight:    0,
 	items: [],

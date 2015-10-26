@@ -66,7 +66,7 @@ Area.prototype.getRandomImage = function() {
 
 app.areas = [
 
-	// Welcome
+	// Welcome has a 1 x 1 map of 1 space
 	new Area({
 		id:     0,
 		name:   "Welcome",
@@ -78,7 +78,7 @@ app.areas = [
 		defaultNPC: app.characters.colrochester
 	}),
 
-	// Boston Harbor
+	// Boston Harbor has a 4 x 4 map of 16 spaces
 	new Area({
 		id:     1,
 		name:   "Boston Harbor",
@@ -115,7 +115,7 @@ app.areas = [
 
 	}),
 
-	// Boston Town
+	// Boston Town has a 4 x 4 map of 16 spaces
 	new Area({
 		id:     2,
 		name:   "Boston Town",
@@ -149,7 +149,7 @@ app.areas = [
 		]
 	}),
 
-	// Massachusetts
+	// Massachusetts has a 5 x 4 map of 20 spaces
 	new Area({
 		id:     3,
 		name:   "Massachusetts",
@@ -173,7 +173,7 @@ app.areas = [
 		defaultNPC: app.characters.cecil
 	}),
 
-	// The Mohawk Trail
+	// The Mohawk Trail has a 10 x 2 map of 20 spaces
 	new Area({
 		id:     4,
 		name:   "The Mohawk Trail",
@@ -192,7 +192,7 @@ app.areas = [
 		defaultNPC: app.characters.cecil
 	}),
 
-	// Bath
+	// Bath has a 3 x 3 map of 9 spaces
 	new Area({
 		id:     5,
 		name:   "Bath",
@@ -206,9 +206,118 @@ app.areas = [
 		],
 		startLocation: [1, 1],
 		randomChars: [
-			app.characters.tory
+			app.characters.tory, app.characters.fitzhugh
+		],
+		defaultNPC: app.characters.williamson
+	}),
+
+	// Genesee Country has a 5 x 5 map of 25 spaces
+	new Area({
+		id:     6,
+		name:   "Genesee Country",
+		images: [
+			"geneseecountry/assets/area6-1.jpg",
+		],
+		map: [
+				[null, app.characters.cecil, null, null],
+				[null, app.characters.cecil, null, null],
+				[null, app.characters.ufriend, null, null],
+				[null, app.characters.cecil, null, null]
+		],
+		startLocation: [1, 3],
+		randomChars: [
+			app.characters.tory, app.characters.senecascout
 		],
 		defaultNPC: app.characters.cecil
+	}),
+
+	// New Jerusalem has a 5 x 5 map of 25 spaces
+	new Area({
+		id:     7,
+		name:   "New Jerusalem",
+		images: [
+			"newjerusalem/assets/area7-1.jpg",
+		],
+		map: [
+				[null, null, null, null, app.characters.ufriend],
+				[null, null, null, null, null],
+				[null, null, null, null, null],
+				[null, app.characters.ufriend, null, null, null],
+				[null, null, null, null, null]
+		],
+		startLocation: [0, 4],
+		randomChars: [
+			app.characters.friend, app.characters.ufriend,
+			app.characters.cecil
+		],
+		defaultNPC: app.characters.elias
+	}),
+
+		// New Jerusalem Escape has a 5 x 5 map of 25 spaces
+	new Area({
+		id:     8,
+		name:   "New Jerusalem Escape",
+		images: [
+			"newjerusalem/assets/area7-1.jpg",
+		],
+		map: [
+				[null, null, null, null, null],
+				[null, null, null, null, null],
+				[null, null, app.characters.xentha, null, null],
+				[null, null, null, null, null],
+				[app.characters.xentha, null, null, null, null]
+		],
+		startLocation: [2, 2],
+		randomChars: [
+			app.characters.mosquitos, app.characters.friend
+		],
+		defaultNPC: app.characters.ufriend
+	}),
+
+	// Genesee River has a 3 x 8 map of 24 spaces
+	new Area({
+		id:     9,
+		name:   "Genesee River",
+		images: [
+			"geneseeriver/assets/area8-1.jpg",
+		],
+		map: [
+				[app.characters.splitfoot, app.characters.splitfoot, app.characters.splitfoot],
+				[null, null, null],
+				[null, null, null],
+				[null, null, null],
+				[null, null, null],
+				[null, null, null],
+				[null, null, null],
+				[null, null, null]
+		],
+		startLocation: [0, 4],
+		randomChars: [
+			app.characters.mosquitos, app.characters.senecawarrior,
+			app.characters.senecashaman
+		],
+		defaultNPC: app.characters.fever
+	}),
+
+	// Fallstown has a 3 x 3 map of 9 spaces
+	new Area({
+		id:     10,
+		name:   "Fallstown",
+		images: [
+			"fallstown/assets/area8-1.jpg",
+		],
+		map: [
+				[null, null, null, null, app.characters.ufriend],
+				[null, null, null, null, null],
+				[null, null, app.characters.ufriend, null, null],
+				[null, null, null, null, null],
+				[null, null, null, null, null]
+		],
+		startLocation: [0, 4],
+		randomChars: [
+			app.characters.mosquitos, app.characters.friend
+		],
+		defaultNPC: app.characters.elias
 	})
 
 ];
