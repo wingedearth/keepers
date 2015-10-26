@@ -44,7 +44,7 @@ body {
 	margin: auto;
 	top: 5%;
 	left: 20%;
-	width: 80%;
+	width: 90%;
 }
 
 .halfscreen {
@@ -70,6 +70,15 @@ body {
 	top: 10px; left: 5px;
 	color: white;
 	width: 225px; height: 30px;
+	text-align: left;
+}
+
+#location {
+
+}
+
+#coords {
+
 }
 
 

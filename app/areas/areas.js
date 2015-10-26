@@ -43,7 +43,7 @@ var Area = function(options) {
 
 Area.prototype.isRandomInteraction = function() {
 	var testRandom = Math.floor(Math.random()*8);
-	if (testRandom <= 8) {
+	if (testRandom <= 5) {
 		return false;
 	}
 	else {
@@ -52,9 +52,9 @@ Area.prototype.isRandomInteraction = function() {
 };
 
 Area.prototype.getRandomCharacter = function() {
-	var length = this.randomChars.length;
-	var randomIndex = Math.floor(Math.random()*length);
-	return this.randomChars[randomIndex];
+	var len = this.randomChars.length;
+	var randomIndex = Math.floor(Math.random()*len);
+	return (this.randomChars[randomIndex]);
 };
 
 Area.prototype.getRandomImage = function() {
@@ -89,9 +89,9 @@ app.areas = [
 			"bostonharbor/assets/area1-4.jpg"
 		],
 		map: [
-			[app.characters.wharfRat, app.characters.constable, null],
-			[null, app.characters.wharfRat, app.characters.fisherman],
-			[null, null, app.characters.pirate]
+			[null, app.characters.constable, null],
+			[null, null, 										 null],
+			[null, null, 										 app.characters.pirate]
 		],
 		startLocation: [2, 2],
 		randomChars: [

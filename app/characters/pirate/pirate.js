@@ -107,6 +107,7 @@ app.characters.pirate.exchanges = [
         melee(app.characters.pirate);
         if (app.carroll.fight == 0) {
           app.characters.colrochester.keyExchangeIndex = 5;
+          app.characters.pirate.keyExchangeIndex = 2;
           app.carroll.area.map[2][2] = app.characters.colrochester;
         }
         render();

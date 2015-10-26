@@ -416,7 +416,6 @@ var isKey;
 
 
 
-
 /* *******************   BATTLES   ************************* */
 
 function melee(enemy) {
@@ -480,10 +479,6 @@ var $nbtn = $('<li>', {text: "NORTH", class: "clickable"});
 var $wbtn = $('<li>', {text: "WEST", class: "clickable"});
 var $ebtn = $('<li>', {text: "EAST", class: "clickable"});
 var $sbtn = $('<li>', {text: "SOUTH", class: "clickable"});
-
-
-/* **********   INDIVIDUAL CHARACTER EXCHANGES   ************* */
-
 
 
 

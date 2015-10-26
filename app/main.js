@@ -6,7 +6,7 @@ var app = {
 	areas:      [],
 	characters: []
 };
-var character;
+//var character;
 
 // Define Player's Character Object
 app.carroll = {
@@ -33,7 +33,16 @@ app.carroll = {
     loadchar(area);
 	},
 	moveTo: function(newLocation) {
+    // set current location coordinates
+    var mapY = this.location[0];
+    var mapX = this.location[1];
+
 		this.location = newLocation;
+    if (this.area.map[mapY][mapX] == null)
+    {
+      if ( this.area.isRandomInteraction() )
+        this.area.map[mapY][mapX] = this.area.getRandomCharacter();
+    }
 		// render();
 	},
 	currentCharacter: function() {
@@ -46,10 +55,6 @@ app.carroll = {
 			return this.area.map[mapY][mapX];
 		}
 
-		// if there's a random encounter, return random character
-		else if(this.area.isRandomInteraction()) {
-			return this.area.getRandomCharacter();
-		}
 		else {
 			return this.area.defaultNPC;
 		}
@@ -97,9 +102,10 @@ var render = function() {
 	 * ┃   image    ┃ responses  ┃
 	 * ┃            ┃            ┃
 	 * ┗━━━━━━━━━━━━┻━━━━━━━━━━━━┛
-     */
+   */
 
     var $location  = $("#location"),
+        $coords    = $("#coords"),
         $charImage = $("#photobox"),
         $response  = $("#actionlist"),
         $areaImage = $("#placebox"),
@@ -111,7 +117,7 @@ var render = function() {
 
     var coordX = app.carroll.location[1];
     var coordY = (app.carroll.area.map.length) - (app.carroll.location[0]) - 1;
-    $location.append(" (" + coordX + "," + coordY + ")");
+    $coords.text("coordinates: (" + coordX + "," + coordY + ")");
 
 
     // B. Display character image and name
