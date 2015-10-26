@@ -228,11 +228,14 @@ $(document).ready(function() {
 		// LOAD AREAS
 		loadScript("app/areas/areas.js").on("load", function() {
 
-			// INITIALIZE GAME
+      loadScript("app/characters/colrochester/colrochester.js").on("load", function() {
 
-			// Carroll arrives at Welcome area
-			app.carroll.arriveAt(app.areas[0]);
-			render();
+  			// INITIALIZE GAME
+
+  			// Carroll arrives at Welcome area
+  			app.carroll.arriveAt(app.areas[0]);
+  			render();
+      });
 		});
 	});
 });
