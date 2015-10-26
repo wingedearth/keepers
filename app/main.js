@@ -30,6 +30,7 @@ app.carroll = {
 	arriveAt: function(area) {
 		this.area = area;
 		this.moveTo(area.startLocation);
+    loadchar(area);
 	},
 	moveTo: function(newLocation) {
 		this.location = newLocation;
@@ -228,14 +229,17 @@ $(document).ready(function() {
 		// LOAD AREAS
 		loadScript("app/areas/areas.js").on("load", function() {
 
-      loadScript("app/characters/colrochester/colrochester.js").on("load", function() {
+      loadScript("app/characters/loadchars.js").on("load", function() {
 
-  			// INITIALIZE GAME
+        loadScript("app/characters/colrochester/colrochester.js").on("load", function() {
 
-  			// Carroll arrives at Welcome area
-        loadScript("app/characters/pirate/pirate.js")
-  			app.carroll.arriveAt(app.areas[0]);
-  			render();
+    			// INITIALIZE GAME
+
+    			// Carroll arrives at Welcome area
+          loadScript("app/characters/pirate/pirate.js")
+    			app.carroll.arriveAt(app.areas[0]);
+  			  render();
+        });
       });
 		});
 	});

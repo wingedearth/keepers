@@ -1,4 +1,4 @@
-console.log("Col. Rochester has been summoned.")
+console.log("Col. Rochester has been summoned.");
 
 // COL. NATHANIEL ROCHESTER'S EXCHANGES
 
@@ -116,7 +116,6 @@ app.characters.colrochester.exchanges = [
     },  {
       button: "I'll mop the floor with this clown.",
       respond: function() {
-        console.log("for sure.");
         app.characters.colrochester.keyExchangeIndex = 5;
         app.carroll.arriveAt(app.areas[1]);
         render();

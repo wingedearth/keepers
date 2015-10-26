@@ -1,4 +1,4 @@
-console.log("yarrrrrr, pirate.js is on the deck.")
+console.log("yarrrrrr, pirate.js is on the deck.");
 
 // PIRATE'S EXCHANGES
 app.characters.pirate.exchanges = [
