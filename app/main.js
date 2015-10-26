@@ -233,6 +233,7 @@ $(document).ready(function() {
   			// INITIALIZE GAME
 
   			// Carroll arrives at Welcome area
+        loadScript("app/characters/pirate/pirate.js")
   			app.carroll.arriveAt(app.areas[0]);
   			render();
       });
