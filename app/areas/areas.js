@@ -115,7 +115,7 @@ app.areas = [
 
 	}),
 
-	// Boston Town has a 4 x 4 map of 16 spaces
+	// Boston Town has a 5 x 5 map of 25 spaces
 	new Area({
 		id:     2,
 		name:   "Boston Town",
@@ -125,10 +125,11 @@ app.areas = [
 			"bostontown/assets/area2-3.jpg"
 		],
 		map: [
-			[null, app.characters.robertMorris, null, app.characters.apothecary],
-			[app.characters.cutthroat, app.characters.barkeep, app.characters.tavernwench, null],
-			[null, app.characters.tavernwench, null, null],
-			[app.characters.guard, app.characters.cutthroat, app.characters.colrochester, null]
+			[null, app.characters.robertMorris, null, app.characters.apothecary, null],
+			[null, app.characters.barkeep, null, null, null],
+			[null, null, null, null, null],
+			[app.characters.guard, null, app.characters.colrochester, null, null]
+			[null, null, null, null, null]
 		],
 		startLocation: [3, 2],
 		randomChars: [
@@ -168,7 +169,7 @@ app.areas = [
 		],
 		startLocation: [2, 4],
 		randomChars: [
-			app.characters.cutthroat
+			app.characters.cutthroat, app.characters.tory
 		],
 		defaultNPC: app.characters.cecil
 	}),
@@ -219,14 +220,15 @@ app.areas = [
 			"geneseecountry/assets/area6-1.jpg",
 		],
 		map: [
-				[null, app.characters.cecil, null, null],
-				[null, app.characters.cecil, null, null],
-				[null, app.characters.ufriend, null, null],
-				[null, app.characters.cecil, null, null]
+				[null, app.characters.cecil, null, null, null],
+				[null, app.characters.cecil, null, null, null],
+				[null, app.characters.cecil, null, null, null],
+				[null, app.characters.ufriend, null, null, null],
+				[null, app.characters.cecil, null, null, null]
 		],
 		startLocation: [1, 3],
 		randomChars: [
-			app.characters.tory, app.characters.senecascout
+			app.characters.senecashaman, app.characters.senecascout
 		],
 		defaultNPC: app.characters.cecil
 	}),
