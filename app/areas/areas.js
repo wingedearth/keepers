@@ -171,7 +171,15 @@ app.areas = [
 		randomChars: [
 			app.characters.cutthroat, app.characters.tory
 		],
-		defaultNPC: app.characters.cecil
+		defaultNPC: app.characters.cecil,
+		defaultMessage: [
+		     "The air is chilly here, master. But Massachusetts is beautiful",
+		     "Let us travel along the Boston Post Road all the way to New York.",
+		     "There is a well-known inn for travelers at Sudbury, right along the Boston Post Road.",
+		     "They say in these parts there are WITCHES about! Especially to the northeast, in Salem",
+		     "The first shots of the American Revolution were fired not far from here, in Lexington.",
+		     "America won its first battle against the British near here in Concord, Massachusetts."
+		]
 	}),
 
 	// The Mohawk Trail has a 10 x 2 map of 20 spaces
@@ -190,7 +198,15 @@ app.areas = [
 		randomChars: [
 			app.characters.mohawkscout
 		],
-		defaultNPC: app.characters.cecil
+		defaultNPC: app.characters.cecil,
+		defaultMessage: [
+				"I have heard tales of the Iroquois. A powerful Confederacy \
+				of fierce warriors.",
+				"We are past the Hudson River. These lands are more wild than \
+				any in Europe has been in thousands of years.",
+				"They say the ghost of a beheaded Hessian warrior stalks these\
+				lands, killing all in his way, in search of his lost head."
+		]
 	}),
 
 	// Bath has a 3 x 3 map of 9 spaces
@@ -207,9 +223,30 @@ app.areas = [
 		],
 		startLocation: [1, 1],
 		randomChars: [
-			app.characters.tory, app.characters.fitzhugh
+			app.characters.tory, app.characters.williamson
 		],
-		defaultNPC: app.characters.williamson
+		defaultNPC: app.characters.fitzhugh,
+		defaultMessage: [
+				"I understand you are acquainted with my cousin, \
+				William Fitzhugh. I have been long away from Maryland.",
+				"The Genesee Country is a great investment opportunity.\
+				Wild, unclaimed land!",
+				"Only the bold travel this far west. I salute you, sir!",
+				"I would gladly travel with you to Fallstown, sir, but \
+				Captain Williamson needs me here.",
+				"It's strange, working for a Tory, but Captain Williamson \
+				 is a good man.",
+				 "We have traded with the Society of Universal Friends. Their\
+				  settlement is the furthest west of any American enclave.",
+				 "We are at peace with the Iroquois Confederacy, but their\
+				 their warriors, the Seneca Nation, do not tolerate our \
+				 presence west of the Genesee River.",
+				 "We are in the heartland of the Six Nations of the Iroquois.",
+				 "The Six Nations of Iroquois are: the Mohawk, the Onondaga, \
+				 the Oneida, the Cayuga, the Tuscarora, and the Seneca.",
+				 "The Iroquois refer to themselves as the Haudenosaunee, \
+				 or 'People of the Longhouse'."
+		]
 	}),
 
 	// Genesee Country has a 5 x 5 map of 25 spaces
@@ -220,17 +257,20 @@ app.areas = [
 			"geneseecountry/assets/area6-1.jpg",
 		],
 		map: [
-				[null, app.characters.cecil, null, null, null],
-				[null, app.characters.cecil, null, null, null],
-				[null, app.characters.cecil, null, null, null],
+				[null, app.characters.cecil,   null, null, null],
+				[null, app.characters.cecil,   null, null, null],
+				[null, app.characters.cecil,   null, null, null],
 				[null, app.characters.ufriend, null, null, null],
-				[null, app.characters.cecil, null, null, null]
+				[null, app.characters.cecil,   null, null, null]
 		],
-		startLocation: [1, 3],
+		startLocation: [1, 5],
 		randomChars: [
 			app.characters.senecashaman, app.characters.senecascout
 		],
-		defaultNPC: app.characters.cecil
+		defaultNPC: app.characters.cecil,
+		defaultMessage: [
+				"Welcome to the Genesee Country."
+		]
 	}),
 
 	// New Jerusalem has a 5 x 5 map of 25 spaces
@@ -252,7 +292,13 @@ app.areas = [
 			app.characters.friend, app.characters.ufriend,
 			app.characters.cecil
 		],
-		defaultNPC: app.characters.elias
+		defaultNPC: app.characters.elias,
+		defaultMessage: [
+				"Welcome to the New Jerusalem! God will purify you!",
+				"The Universal Friend cut off my evil! Want me to show you?",
+				"The Friends are not allowed to have children, but many
+				already had kids before the Friend saved them!"
+		]
 	}),
 
 		// New Jerusalem Escape has a 5 x 5 map of 25 spaces
@@ -273,7 +319,14 @@ app.areas = [
 		randomChars: [
 			app.characters.mosquitos, app.characters.friend
 		],
-		defaultNPC: app.characters.ufriend
+		defaultNPC: app.characters.ufriend,
+		defaultMessage: [
+				"You will not escape me.",
+				"The lilit is lying to you. Return to us and I will protect\
+				 you.",
+				 "Major Carroll has fled into the woods. He must not escape. \
+				 Find him!"
+		]
 	}),
 
 	// Genesee River has a 3 x 8 map of 24 spaces
@@ -298,7 +351,12 @@ app.areas = [
 			app.characters.mosquitos, app.characters.senecawarrior,
 			app.characters.senecashaman
 		],
-		defaultNPC: app.characters.fever
+		defaultNPC: app.characters.fever,
+		defaultMessage: [
+				"You hear the sound of mosquitos buzzing behind you.",
+				"You can see little in the dark forest, but you hear the \
+				splashing of the Genesee River to your right."
+		]
 	}),
 
 	// Fallstown has a 3 x 3 map of 9 spaces

@@ -109,7 +109,7 @@ var render = function() {
         $charImage = $("#photobox"),
         $response  = $("#actionlist"),
         $areaImage = $("#placebox"),
-        $text      = $("#textbox");
+        $text      = $("#texthere");
         $namelabel = $("#namelabel");
 
     // A. Write location name and player's coordinates
@@ -159,7 +159,9 @@ var render = function() {
     $text.html("");
     if (app.carroll.fight==1)
 		{
-			$text.append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
+			$text.append("<br><br><u>Health:</u><br>Charles Carroll\
+        : " + app.carroll.health + "<br>" + character.name + ":\
+          " + character.health + " ");
 			$text.text("A random character has approached you.\n")
 	    $text.append(character.exchanges[character.keyExchangeIndex].msg);
 		}
