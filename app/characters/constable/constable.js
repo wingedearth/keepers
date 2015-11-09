@@ -32,7 +32,7 @@ app.characters.constable.exchanges = [
     responses: [{
       button: "I am much obliged to you, Constable.",
       respond: function() {
-        console.log("Attack");
+        console.log("obliged to you");
         app.characters.constable.keyExchangeIndex = 1;
         app.carroll.arriveAt(app.areas[2]);
         render();

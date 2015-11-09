@@ -28,7 +28,6 @@ app.characters.pirate.exchanges = [
       respond: function() {
         app.characters.pirate.keyExchangeIndex = 1;
         melee(app.characters.pirate);
-
         render();
       }
     },
