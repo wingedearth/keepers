@@ -382,6 +382,20 @@ app.characters = {
 		keyExchangeIndex: 0
 	}),
 
+	// Sara
+	sara: new Character({
+		health:     10000,
+		name: 		"Sara Allan",
+		isHostile:  false,
+		isMerchant: false,
+		strength:   10000,
+		defense:    10000,
+		image:      "app/characters/assets/sara2.jpg",
+		keyImage: 	null,
+		items:      [],
+		keyExchangeIndex: 0
+	}),
+
 	// Genushio
 	genushio: new Character({
 		health:     1000000,
@@ -420,7 +434,7 @@ var isKey;
 
 function melee(enemy) {
 
-	$('#textbox').text("BATTLE!");
+	$('#texthere').text("BATTLE!");
 
 	// player attacks
 	alert("you attack!");
@@ -428,11 +442,11 @@ function melee(enemy) {
 
 	if (enemy.health > 0) {
 		// if still alive, character attacks
-		$('#textbox').append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
+		$('#texthere').append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
 		alert(enemy.name + " attacks!");
 
 	} else {
-		$('#textbox').append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
+		$('#texthere').append("<br><br><u>Health:</u><br>Charles Carroll: " + app.carroll.health + "<br>" + character.name + ": " + character.health + " ");
 		alert(enemy.name + " is dead!");
 
 		loot(enemy);

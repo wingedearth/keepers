@@ -102,8 +102,8 @@ app.characters.colrochester.exchanges = [
   // 4
 
   new Exchange({
-    msg: "<p>Let's be on our way then...<br>Oh no, look out! They're back!"
-    + " It's a pirate!</p>",
+    msg: "<p>Let's be on our way then...<br>Oh no, look out! They're back!\
+     "+ " It's a pirate!</p>",
 
     responses: [{
       button: "I am not afraid.",

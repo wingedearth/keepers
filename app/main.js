@@ -34,10 +34,10 @@ app.carroll = {
 	},
 	moveTo: function(newLocation) {
     // set current location coordinates
+    this.location = newLocation;
     var mapY = this.location[0];
     var mapX = this.location[1];
 
-		this.location = newLocation;
     if (this.area.map[mapY][mapX] == null)
     {
       if ( this.area.isRandomInteraction() )
@@ -47,12 +47,10 @@ app.carroll = {
 	},
 	currentCharacter: function() {
 		// set current location coordinates
-		var mapY = this.location[0];
-		var mapX = this.location[1];
 
 		// if key location, location's character is current character
 		if ( this.isKeyLocation() ) {
-			return this.area.map[mapY][mapX];
+			return this.area.map[this.location[0]][this.location[1]];
 		}
 
 		else {
@@ -61,9 +59,7 @@ app.carroll = {
 	},
 	isKeyLocation: function() {
 		// set current location coordinates
-		var mapY = this.location[0];
-		var mapX = this.location[1];
-		if (this.area.map[mapY][mapX] !== null) {
+		if (this.area.map[this.location[0]][this.location[1]] != null) {
 			return true;
 		}
 		else {
@@ -122,10 +118,7 @@ var render = function() {
 
     // B. Display character image and name
     character = app.carroll.currentCharacter();
-    app.carroll.isKeyLocation();
     $charImage.css('background-image', 'url("' + character.image + '")');
-
-    //$('#namebox .container').text(character.name);
     $namelabel.html("<span>" + character.name + "</span>");
 
     // C. Draw response buttons and attach events to them

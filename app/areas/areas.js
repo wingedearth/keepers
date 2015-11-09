@@ -128,7 +128,7 @@ app.areas = [
 			[null, app.characters.robertMorris, null, app.characters.apothecary, null],
 			[null, app.characters.barkeep, null, null, null],
 			[null, null, null, null, null],
-			[app.characters.guard, null, app.characters.colrochester, null, null]
+			[app.characters.guard, null, app.characters.colrochester, null, null],
 			[null, null, null, null, null]
 		],
 		startLocation: [3, 2],
@@ -296,7 +296,7 @@ app.areas = [
 		defaultMessage: [
 				"Welcome to the New Jerusalem! God will purify you!",
 				"The Universal Friend cut off my evil! Want me to show you?",
-				"The Friends are not allowed to have children, but many
+				"The Friends are not allowed to have children, but many \
 				already had kids before the Friend saved them!"
 		]
 	}),
@@ -313,7 +313,7 @@ app.areas = [
 				[null, null, null, null, null],
 				[null, null, app.characters.xentha, null, null],
 				[null, null, null, null, null],
-				[app.characters.xentha, null, null, null, null]
+				[app.characters.mosquitos, null, null, null, null]
 		],
 		startLocation: [2, 2],
 		randomChars: [
@@ -329,7 +329,7 @@ app.areas = [
 		]
 	}),
 
-	// Genesee River has a 3 x 8 map of 24 spaces
+	// Genesee River has a 3 x 10 map of 30 spaces
 	new Area({
 		id:     9,
 		name:   "Genesee River",
@@ -337,25 +337,34 @@ app.areas = [
 			"geneseeriver/assets/area8-1.jpg",
 		],
 		map: [
+				[app.characters.sara, app.characters.sara, app.characters.sara],
+				[null, null, null],
+				[null, null, null],
 				[app.characters.splitfoot, app.characters.splitfoot, app.characters.splitfoot],
 				[null, null, null],
 				[null, null, null],
 				[null, null, null],
 				[null, null, null],
 				[null, null, null],
-				[null, null, null],
-				[null, null, null]
+				[null, null, app.characters.xentha]
 		],
-		startLocation: [0, 4],
+		startLocation: [9, 2],
 		randomChars: [
 			app.characters.mosquitos, app.characters.senecawarrior,
 			app.characters.senecashaman
 		],
 		defaultNPC: app.characters.fever,
 		defaultMessage: [
-				"You hear the sound of mosquitos buzzing behind you.",
+				"You hear the sound of mosquitos buzzing behind you. Or \
+				maybe they're in your mind. Are the mosquitos real? \
+				You can feel them on your skin.",
 				"You can see little in the dark forest, but you hear the \
-				splashing of the Genesee River to your right."
+				splashing of the Genesee River to your right. You hear \
+				hoofbeats, and the crunching of leaves. You hear \
+				the wind, as it burns the tops of your ears, and chills \
+				your bones.",
+				"It is difficult to see, in the weak light. But there \
+				is a faint glow in the distance. A campfire?"
 		]
 	}),
 
@@ -367,17 +376,23 @@ app.areas = [
 			"fallstown/assets/area8-1.jpg",
 		],
 		map: [
-				[null, null, null, null, app.characters.ufriend],
+				[null, null, null, null, app.characters.genushio],
 				[null, null, null, null, null],
-				[null, null, app.characters.ufriend, null, null],
+				[null, null, app.characters.sara, null, null],
 				[null, null, null, null, null],
 				[null, null, null, null, null]
 		],
-		startLocation: [0, 4],
+		startLocation: [2, 2],
 		randomChars: [
-			app.characters.mosquitos, app.characters.friend
+			app.characters.sara
 		],
-		defaultNPC: app.characters.elias
+		defaultNPC: app.characters.sara,
+		defaultMessage: [
+				"Genushio is waiting for you. He is \
+				by the High Falls of the Genesee River.",
+				"The Seneca recognize Genushio as steward over \
+				these 100 acres of land that make up Fallstown."
+		]
 	})
 
 ];
